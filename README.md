@@ -7,14 +7,15 @@
 * [Nice to have commands](#nice-to-have-commands)
 
 # Basic command structure
-```
+```s
 command -options arguments
 ```
 
 ### Important commands
 
 ### Useful commands
-* clear: clear the terminal
+* clear
+  * clear the terminal
 
 ### Nice to have commands
 * date
