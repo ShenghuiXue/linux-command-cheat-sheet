@@ -12,10 +12,29 @@ command -options arguments
 ```
 
 ### Important commands
+* man
+  * read the manual page of a command
+    ```s
+    man ncal
+    ```
+  * search a command
+    ```s
+    man -k command_name
+    man -k passwd
+    ```
+  * read the mannual page of a command in a specific session
+    ```s
+    man 1 passwd
+    ```
 
 ### Useful commands
 * clear
   * clear the terminal
+* sort
+  * sort each lines in a give file
+    ```s
+    sort file_name
+    ```
 
 ### Nice to have commands
 * date
