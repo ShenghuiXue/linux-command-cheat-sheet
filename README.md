@@ -12,6 +12,7 @@ command -options arguments
 ```
 
 ### Important commands
+#### Manual command
 * man
   * Read the manual page of a command
     ```s
@@ -29,6 +30,44 @@ command -options arguments
   * Not all commands have commands entries. Some commands that are build in shell do not have manual information and you can use ***help*** command. 
     ```s
     help cd
+    ```
+#### Navigation commands
+* pwd
+  * Print the working directory
+* ls
+  * List the contents of a directory
+  * List the contents of the current working directory:
+    ```s
+    ls
+    ```
+  * List the contents of a specific folder
+    ```s
+    ls folder_dir
+    ls ~
+    ```
+  * List the contents of a directory with long format
+    ```s
+    ls -l
+    ls -l folder_dir
+    ```
+  * List all the contents of a directory including hiding fils and folders
+    ```s
+    ls -a
+    ls -a folder_dir
+    ```
+  * List **all** the contents of a directory with **long** format
+    ```s
+    ls -la
+    ls -la folder_dir
+    ```
+  * List **all** the contents of a directory with **long** **human-readable** format
+    ```s
+    ls -lah
+    ```
+  * Lists the contents of a directory and **sorted** by size
+    ```s
+    ls -s
+    ls --sort=time     // sort by time
     ```
 
 ### Useful commands
@@ -55,7 +94,15 @@ command -options arguments
     * A built-in shell command. These commands are part of the shell, such as bash and zsh.
     * A shell function.
     * An alias.
-
+* xdg-open, open
+  * open a specific folder in the gui of ubuntu
+    ```s
+    xdg-open folder_dir
+    ```
+  * open a specific folder in the gui of mac
+    ```s
+    open folder_dir
+    ```
 
 ### Nice to have commands
 * date
