@@ -103,15 +103,53 @@ command -options arguments
     touch ~/abc.txt  // create a new file named abc.txt in the HOME directory
     ```
 * mkdir
+  * Create new directories
+    ```s
+    mkdir <file_name>
+    mkdir <file_name_1> <file_name_2>
+    mkdir <file_path_and_file_name>
+    ```
+  * If you want to make mutiple nested directoris, you can use ***-p*** option.
+    ```s
+    // this command will show ERROR if animals or cats directory is not available
+    mkdir animals/cats/small_cats
+
+    // this command will create all three directories even if 
+    // animals and cats directories are not available
+    mkdir -p animals/cats/small_cats 
+    ```
 
 ### Useful commands
 * clear
   * Clear the terminal
-* which
-  * Tells where is the command is located.
-  * Related commands: ***type***, ***man***
+* file
+  * Show the type of the file (or the folder)
     ```s
-    which command_name
+    file <file_name or folder_name>
+    ```
+* nano
+  * nano is a program that we can use to open and edit files from the commandline
+    ```s
+    nano <file_path_and_file_name>
+    ```
+  * short cuts:
+    * Shortcuts are written as follows: **Control-key** sequences are notated with a **'^'** and can be entered either by using the Ctrl key or pressing the Esc key twice.  **Meta-key** sequences are notated with **'M-'** and can be entered using either the **Alt, Cmd, or Esc** key, depending on your keyboard setup.
+    * **Crtl + o (^O)**: write out the file and the nano will ask which file will be write to
+    * **Ctrl + x**: exit/close
+    * **Ctrl + s**: save the file changes
+    * **Ctrl + c**: cancel
+    * **Ctrl + g**: go to help manual
+    * **Ctrl + w**: serach
+    * **Ctrl + \\**: serach and replace
+    * **Ctrl + t**: use spell checker
+      * spell check is disabled by default. 
+      * we can enable the spell check by editing the configration file located at `/etc/nanorc` using `sodu nano /etc/nanorc`
+    * **Alt + u (M-U)**: undo
+    * **Alt + e**: redo
+    * **Alt + s**: Soft wrapping of overlong lines enable/disable
+  * we can use nano to **create a new file** as well. We can type nano and follow a file name that does not exists.
+    ```s
+    nano <file_name_that_to_be_created>
     ```
 * sort
   * Sort each lines in a give file
@@ -136,6 +174,12 @@ command -options arguments
   * open a specific folder in the gui of mac
     ```s
     open <folder_dir>
+    ```
+* which
+  * Tells where is the command is located.
+  * Related commands: ***type***, ***man***
+    ```s
+    which command_name
     ```
 
 ### Nice to have commands
