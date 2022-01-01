@@ -69,6 +69,28 @@ command -options arguments
     ls -s
     ls --sort=time     // sort by time
     ```
+* cd
+  * Change the directory
+    ```s
+    cd folder_dir
+    cd ..  // go to the parent directory
+    cd ~   // go to user HOME directory
+    cd /   // go to the root directory
+    cd -   // go to the previous directory
+    ```
+  * **A single dot (.)**: the reference to the current diretory
+  * **Double dots (..)**: are the reference to the parent directory
+  * **/**: the root directory
+  * **~**: the user HOME directory
+  * Overview of the directories in linux:
+    * **/bin**: "bin" is short for "binary directory". This directory contains lots of exectable programs.
+    * **/etc**: contains configration (setting) files and initialization scripts.
+    * **/media**: accesses the contents of the removable media, such as usb drive and sd card.
+    * **/var**: "var" is short for "varaible". This directory contains files related with logging, the outputs from other programs, and caches.
+    * **/root**: is the home directory of the super user (root user), which is different from "/".
+    * **/usr**: contains exectable files, libraies. If you install a software, it will be most likely in this folder.
+
+#### Creating files and folders
 
 ### Useful commands
 * clear
