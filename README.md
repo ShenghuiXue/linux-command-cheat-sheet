@@ -1,4 +1,4 @@
-# Linux commands cheat sheet
+# The basic linux commands cheat sheet
 
 ## Table of content
 * [Basic command structure](#basic-command-structure)
@@ -20,7 +20,7 @@ command -options arguments
     ```
   * Search a command
     ```s
-    man -k command_name
+    man -k <command_name>
     man -k passwd
     ```
   * Read the mannual page of a command in a specific session
@@ -42,23 +42,23 @@ command -options arguments
     ```
   * List the contents of a specific folder
     ```s
-    ls folder_dir
+    ls <folder_dir>
     ls ~
     ```
   * List the contents of a directory with long format
     ```s
     ls -l
-    ls -l folder_dir
+    ls -l <folder_dir>
     ```
   * List all the contents of a directory including hiding fils and folders
     ```s
     ls -a
-    ls -a folder_dir
+    ls -a <folder_dir>
     ```
   * List **all** the contents of a directory with **long** format
     ```s
     ls -la
-    ls -la folder_dir
+    ls -la <folder_dir>
     ```
   * List **all** the contents of a directory with **long** **human-readable** format
     ```s
@@ -91,6 +91,18 @@ command -options arguments
     * **/usr**: contains exectable files, libraies. If you install a software, it will be most likely in this folder.
 
 #### Creating files and folders
+* touch
+  * Change file timestamps (the original intended user of **touch** ^0^)
+  * Create a **new** file or mutiple **new** files **if not exist**
+    ```s
+    touch <file_path_and_file_name>
+    touch <file_name_1> <file_name_2> // creating multiple files in the current directory
+    ```
+  * You can create a new file in a specified directory as well:
+    ```s
+    touch ~/abc.txt  // create a new file named abc.txt in the HOME directory
+    ```
+* mkdir
 
 ### Useful commands
 * clear
@@ -104,12 +116,12 @@ command -options arguments
 * sort
   * Sort each lines in a give file
     ```s
-    sort file_name
+    sort <file_name>
     ```
 * type
   * Tells the types of command
     ```s
-    type command_name
+    type <command_name>
     ```
   * There are four types of commands:
     * An executable program which usually sotred in /bin, /usr/bin, or /usr/local/bin. These are comipled binary files (hence bin)
@@ -119,11 +131,11 @@ command -options arguments
 * xdg-open, open
   * open a specific folder in the gui of ubuntu
     ```s
-    xdg-open folder_dir
+    xdg-open <folder_dir>
     ```
   * open a specific folder in the gui of mac
     ```s
-    open folder_dir
+    open <folder_dir>
     ```
 
 ### Nice to have commands
