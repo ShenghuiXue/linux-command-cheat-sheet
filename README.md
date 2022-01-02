@@ -22,9 +22,10 @@
     * head and tail
     * wc
     * sort
+    * nano
 * [Useful commands](#useful-commands)
 * [Nice to have commands](#nice-to-have-commands)
-* [Shortcut](#shortcut)
+* [Shortcuts](#shortcuts)
 
 # Basic command structure
 ```s
@@ -116,7 +117,7 @@ command -options arguments
 #### Creating files and folders
 [Back to TOC](#table-of-contents) 
 * touch
-  * Change file timestamps (the original intended user of **touch** ^0^)
+  * Change file timestamps (the original intended use of **touch** ^0^)
   * Create a **new** file or mutiple **new** files **if not exist**
     ```s
     touch <file_path_and_file_name>
@@ -263,6 +264,30 @@ command -options arguments
     sort -n <file_name_with_numbers> // sort by comparing the numeric values in each line
     sort -u <file_name> // sort and only keep uqiue values
     ```
+* nano
+  * nano is a program that we can use to open and edit files from the commandline
+    ```s
+    nano <file_path_and_file_name>
+    ```
+  * short cuts:
+    * Shortcuts are written as follows: **Control-key** sequences are notated with a **'^'** and can be entered either by using the Ctrl key or pressing the Esc key twice.  **Meta-key** sequences are notated with **'M-'** and can be entered using either the **Alt, Cmd, or Esc** key, depending on your keyboard setup.
+    * **Crtl + o (^O)**: write out the file and the nano will ask which file will be write to
+    * **Ctrl + x**: exit/close
+    * **Ctrl + s**: save the file changes
+    * **Ctrl + c**: cancel
+    * **Ctrl + g**: go to help manual
+    * **Ctrl + w**: serach
+    * **Ctrl + \\**: serach and replace
+    * **Ctrl + t**: use spell checker
+      * spell check is disabled by default. 
+      * we can enable the spell check by editing the configration file located at `/etc/nanorc` using `sodu nano /etc/nanorc`
+    * **Alt + u (M-U)**: undo
+    * **Alt + e**: redo
+    * **Alt + s**: Soft wrapping of overlong lines enable/disable
+  * We can use nano to **create a new file** as well. We can type nano and follow a file name that does not exists.
+    ```s
+    nano <file_name_that_to_be_created>
+    ```
 ### Useful commands
 [Back to TOC](#table-of-contents) 
 * clear
@@ -285,30 +310,6 @@ command -options arguments
     ```
   * You can use "Ctrl + r" to search history
   * History commands are saved in "~/.bash_history", so you can find all the history commands using `nano ~/.bash_history`.
-* nano
-  * nano is a program that we can use to open and edit files from the commandline
-    ```s
-    nano <file_path_and_file_name>
-    ```
-  * short cuts:
-    * Shortcuts are written as follows: **Control-key** sequences are notated with a **'^'** and can be entered either by using the Ctrl key or pressing the Esc key twice.  **Meta-key** sequences are notated with **'M-'** and can be entered using either the **Alt, Cmd, or Esc** key, depending on your keyboard setup.
-    * **Crtl + o (^O)**: write out the file and the nano will ask which file will be write to
-    * **Ctrl + x**: exit/close
-    * **Ctrl + s**: save the file changes
-    * **Ctrl + c**: cancel
-    * **Ctrl + g**: go to help manual
-    * **Ctrl + w**: serach
-    * **Ctrl + \\**: serach and replace
-    * **Ctrl + t**: use spell checker
-      * spell check is disabled by default. 
-      * we can enable the spell check by editing the configration file located at `/etc/nanorc` using `sodu nano /etc/nanorc`
-    * **Alt + u (M-U)**: undo
-    * **Alt + e**: redo
-    * **Alt + s**: Soft wrapping of overlong lines enable/disable
-  * we can use nano to **create a new file** as well. We can type nano and follow a file name that does not exists.
-    ```s
-    nano <file_name_that_to_be_created>
-    ```
 * type
   * Tells the types of command
     ```s
@@ -349,7 +350,7 @@ command -options arguments
     ```s
     ncal jan 2022
     ```
-### Shortcut
+### Shortcuts
 [Back to TOC](#table-of-contents)
 * **Ctrl + a**: jump the cursor at the begin of the line.
 * **Ctrl + e**: jump the cursor at the end of the line.
