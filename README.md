@@ -118,6 +118,45 @@ command -options arguments
     // animals and cats directories are not available
     mkdir -p animals/cats/small_cats 
     ```
+#### Deleting, copying, and moving
+* rm
+  * Remove files and directories from our machine
+  * Remove files. The deleted file cannot be redo and **cannot be found from the trash can**.
+    ```s
+    rm <file_name>
+    ```
+  * Remove **empty** directories.
+    ```s
+    rm -d <empty_directories>
+    rm --dir <empty_directories>
+    rmdir <empty_directories>
+    ```
+  * Remove directories and their contents recursively.
+    ```s
+    rm -r <directories> // be careful when you run this command
+    rm -R <directories> // be careful when you run this command
+    rm -ri <directories> // remove the file and directories interatively
+    ```
+  * 
+* mv
+  * Move files and directories from one location to another location
+    ```s
+    mv <source> <destination> // destination directory is exist
+    mv <source_1> <source_2> <destination> // destination directory is exist
+    ```
+  * Rename **a single** file or **a single** dirctory
+    ```s
+    mv <original_name> <new_name> 
+    mv <original_dir_and_name> <new_dir_and_name> 
+    ```
+* cp
+  * Copy files and directoris
+    ```s
+    cp <source> <destination>
+    cp <file_name> <new_file_name>
+    cp <source_1> <source_2> <destination_dir>
+    cp -r <dir_name> <destination_dir> // use -r to copy directory recursively
+    ```
 
 ### Useful commands
 * clear
