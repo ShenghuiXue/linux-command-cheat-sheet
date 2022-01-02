@@ -232,7 +232,10 @@ command -options arguments
 * sort
   * Sort each lines in a given file
     ```s
-    sort <file_name>
+    sort <file_name> // case insensitive, lower case come first
+    sort -r <file_name> // sort with reverse order
+    sort -n <file_name_with_numbers> // sort by comparing the numeric values in each line
+    sort -u <file_name> // sort and only keep uqiue values
     ```
 ### Useful commands
 * clear
