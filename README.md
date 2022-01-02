@@ -1,10 +1,30 @@
 # The basic linux commands cheat sheet
 
-## Table of content
+## Table of contents
 * [Basic command structure](#basic-command-structure)
 * [Important commands](#important-commands)
+  * [manual command](#manual-command)
+    * man
+  * [navigation commands](#navigation-commands)
+    * pwd
+    * ls
+    * cd
+  * [creating files and folders](#creating-files-and-folders)
+    * touch
+    * mkdir
+  * [deleting, copying, and moving](#deleting-copying-and-moving)
+    * rm
+    * mv
+    * cp
+  * [working with files](#working-with-files)
+    * cat (tac, rev)
+    * less
+    * head and tail
+    * wc
+    * sort
 * [Useful commands](#useful-commands)
 * [Nice to have commands](#nice-to-have-commands)
+* [Shortcut](#shortcut)
 
 # Basic command structure
 ```s
@@ -12,7 +32,9 @@ command -options arguments
 ```
 
 ### Important commands
+[Back to TOC](#table-of-contents) 
 #### Manual command
+[Back to TOC](#table-of-contents) 
 * man
   * Read the manual page of a command
     ```s
@@ -32,6 +54,7 @@ command -options arguments
     help cd
     ```
 #### Navigation commands
+[Back to TOC](#table-of-contents) 
 * pwd
   * Print the working directory
 * ls
@@ -91,6 +114,7 @@ command -options arguments
     * **/usr**: contains exectable files, libraies. If you install a software, it will be most likely in this folder.
 
 #### Creating files and folders
+[Back to TOC](#table-of-contents) 
 * touch
   * Change file timestamps (the original intended user of **touch** ^0^)
   * Create a **new** file or mutiple **new** files **if not exist**
@@ -119,6 +143,7 @@ command -options arguments
     mkdir -p animals/cats/small_cats 
     ```
 #### Deleting, copying, and moving
+[Back to TOC](#table-of-contents) 
 * rm
   * Remove files and directories from our machine
   * Remove files. The deleted file cannot be redo and **cannot be found from the trash can**.
@@ -158,6 +183,7 @@ command -options arguments
     cp -r <dir_name> <destination_dir> // use -r to copy directory recursively
     ```
 #### Working with files
+[Back to TOC](#table-of-contents) 
 * cat
   * Concatenates and prints the contents of files to the terminal
     ```s
@@ -238,6 +264,7 @@ command -options arguments
     sort -u <file_name> // sort and only keep uqiue values
     ```
 ### Useful commands
+[Back to TOC](#table-of-contents) 
 * clear
   * Clear the terminal
 * file
@@ -309,6 +336,7 @@ command -options arguments
     ```
 
 ### Nice to have commands
+[Back to TOC](#table-of-contents) 
 * date
   * Print out the time of the system
 * ncal 
@@ -321,7 +349,8 @@ command -options arguments
     ```s
     ncal jan 2022
     ```
-#### Shortcut
+### Shortcut
+[Back to TOC](#table-of-contents)
 * **Ctrl + a**: jump the cursor at the begin of the line.
 * **Ctrl + e**: jump the cursor at the end of the line.
 * **Ctrl + f**: move the cursor forward for one character.
