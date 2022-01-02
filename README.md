@@ -157,7 +157,83 @@ command -options arguments
     cp <source_1> <source_2> <destination_dir>
     cp -r <dir_name> <destination_dir> // use -r to copy directory recursively
     ```
-
+#### Working with files
+* cat
+  * Concatenates and prints the contents of files to the terminal
+    ```s
+    cat <file_name>
+    ```
+  * Related (but less importand) commands
+    * tac
+      * Concatenates and prints the contents of files to the terminal in **reverse** order for each line
+        ```s
+        tac <file_name>
+        ```
+    * rev
+      * Concatenates and prints the contents of files to the terminal and reverse all characters in each line
+        ```s
+        rev 
+        rev <file_name>
+        ```
+* less
+  * Display the content of the file, one page at a time. 
+    ```s
+    less <file_name>
+    ```
+  * When viewing a file using less, 
+    * press `space` or `f` to go the the next page
+    * press `b` to go back to the previous page
+    * press `enter` or `Down arrow` to scroll by one line
+    * type `/ followed by a pattern` to search
+    * press `q` to quit
+* head
+  * Print a port of a file starting from beginning. By default, print the first 10 lines of a file.
+    ```s
+    head <file_name>
+    head -n 5 <file_name> // set how many lines to print out
+    head -n5 <file_name> // set how many lines to print out
+    head --lines 5 <file_name> // set how many lines to print out
+    head -5 <file_name> // set how many lines to print out
+    ```
+* tail
+  * Print a port of a file from the end By default, print the last 10 lines of a file.
+    ```s
+    tail <file_name>
+    tail -n 5 <file_name> // set how many lines to print out
+    tail -n5 <file_name> // set how many lines to print out
+    tail --lines 5 <file_name> // set how many lines to print out
+    tail -5 <file_name> // set how many lines to print out
+    ```
+* wc
+  * This command prints counts the number of lines, words, and characters in one or mutiple files 
+    ```s
+    wc <file_name>
+    wc <file_name_1> <file_name_2>
+    ```
+  * Explain the output:
+    ```s
+    // output
+    308  1703 10488 README.md
+    // README.md file has 308 lines, 1703 words, and 10488 characters
+    ```
+  * Lines count
+    ```s
+    wc -l <file_names>
+    ```
+  * Words count
+    ```s
+    wc -w <file_names>
+    ```
+  * Characters count and bytes count
+    ```s
+    wc -m <file_names>
+    wc -c <file_names>
+    ```
+* sort
+  * Sort each lines in a given file
+    ```s
+    sort <file_name>
+    ```
 ### Useful commands
 * clear
   * Clear the terminal
@@ -166,6 +242,19 @@ command -options arguments
     ```s
     file <file_name or folder_name>
     ```
+* history
+  * Display all the command lines you entered previously
+    ```s
+    history
+    history | less
+    ```
+  * You can rerun the history commands using "!+history_id"
+    ```s
+    history // this list the hisotry commands with id
+    !7 // run the command of id 7 in the history
+    ```
+  * You can use "Ctrl + r" to search history
+  * History commands are saved in "~/.bash_history", so you can find all the history commands using `nano ~/.bash_history`.
 * nano
   * nano is a program that we can use to open and edit files from the commandline
     ```s
@@ -190,11 +279,6 @@ command -options arguments
     ```s
     nano <file_name_that_to_be_created>
     ```
-* sort
-  * Sort each lines in a give file
-    ```s
-    sort <file_name>
-    ```
 * type
   * Tells the types of command
     ```s
@@ -206,11 +290,11 @@ command -options arguments
     * A shell function.
     * An alias.
 * xdg-open, open
-  * open a specific folder in the gui of ubuntu
+  * Open a specific folder in the gui of ubuntu
     ```s
     xdg-open <folder_dir>
     ```
-  * open a specific folder in the gui of mac
+  * Open a specific folder in the gui of mac
     ```s
     open <folder_dir>
     ```
@@ -223,14 +307,28 @@ command -options arguments
 
 ### Nice to have commands
 * date
-  * print out the time of the system
+  * Print out the time of the system
 * ncal 
-  * print out a vertical calander of current month
-  * print out the calendar of the entire year: 
+  * Print out a vertical calander of current month
+  * Print out the calendar of the entire year: 
     ```s
     ncal 2025
     ```
-  * print out the calendar of a given month in a given year
+  * Print out the calendar of a given month in a given year
     ```s
     ncal jan 2022
     ```
+#### Shortcut
+* **Ctrl + a**: jump the cursor at the begin of the line.
+* **Ctrl + e**: jump the cursor at the end of the line.
+* **Ctrl + f**: move the cursor forward for one character.
+* **Ctrl + b**: move the cursor backward for one character.
+* **Alt + f**: move the cursor forward for one word.
+* **Alt + b**: move the cursor backward for one word.
+* **Crtl + l**: clear console by moving view part up.
+* **Ctrl + t**: swap two characters next to each other.
+* **Alt + t**: swap two words next to each other.
+* **Ctrl + k**: kill the text from the current cursor to the end of the line.
+* **Ctrl + u**: kill the text from the current cursor to the beginning of the line.
+* **Alt + d**: kill the text from the current cursor to the end of the word.
+* **Ctrl + d**: kill the charactor in the current cursor.
