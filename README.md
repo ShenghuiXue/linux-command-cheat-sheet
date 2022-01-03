@@ -33,14 +33,14 @@
 * [Nice to have commands](#nice-to-have-commands)
 * [Shortcuts](#shortcuts)
 
-# Basic command structure
+## Basic command structure
 ```s
 command -options arguments
 ```
 
-### Important commands
+## Important commands
 [Back to TOC](#table-of-contents) 
-#### Manual command
+### Manual command
 [Back to TOC](#table-of-contents) 
 * man
   * Read the manual page of a command
@@ -60,7 +60,7 @@ command -options arguments
     ```s
     help cd
     ```
-#### Navigation commands
+### Navigation commands
 [Back to TOC](#table-of-contents) 
 * pwd
   * Print the working directory
@@ -120,7 +120,7 @@ command -options arguments
     * **/root**: is the home directory of the super user (root user), which is different from "/".
     * **/usr**: contains executable files, libraries. If you install a software, it will be most likely in this folder.
 
-#### Creating files and folders
+### Creating files and folders
 [Back to TOC](#table-of-contents) 
 * touch
   * Change file timestamps (the original intended use of **touch** ^0^)
@@ -149,7 +149,7 @@ command -options arguments
     // animals and cats directories are not available
     mkdir -p animals/cats/small_cats 
     ```
-#### Deleting, copying, and moving
+### Deleting, copying, and moving
 [Back to TOC](#table-of-contents) 
 * rm
   * Remove files and directories from our machine
@@ -189,7 +189,7 @@ command -options arguments
     cp <source_1> <source_2> <destination_dir>
     cp -r <dir_name> <destination_dir> // use -r to copy directory recursively
     ```
-#### Working with files
+### Working with files
 [Back to TOC](#table-of-contents) 
 * cat
   * Concatenates and prints the contents of files to the terminal
@@ -294,7 +294,7 @@ command -options arguments
     ```s
     nano <file_name_that_to_be_created>
     ```
-#### Redirection
+### Redirection
 [Back to TOC](#table-of-contents)
 * \>
   * Redirect standard output to a given file using `>`. The file will be completely **overwritten**.
@@ -342,7 +342,7 @@ command -options arguments
       * `cat < README.md` means there is no FILE for cat, so "read standard input" instead. "< README.md" is the standard input.
 
 
-### Useful commands
+## Useful commands
 [Back to TOC](#table-of-contents) 
 * clear
   * Clear the terminal
@@ -390,7 +390,7 @@ command -options arguments
     which command_name
     ```
 
-### Nice to have commands
+## Nice to have commands
 [Back to TOC](#table-of-contents) 
 * date
   * Print out the time of the system
@@ -404,7 +404,7 @@ command -options arguments
     ```s
     ncal jan 2022
     ```
-### Shortcuts
+## Shortcuts
 [Back to TOC](#table-of-contents)
 * **Ctrl + a**: jump the cursor at the begin of the line.
 * **Ctrl + e**: jump the cursor at the end of the line.
