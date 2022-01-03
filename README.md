@@ -23,6 +23,12 @@
     * wc
     * sort
     * nano
+  * [Redirection](#redirection)
+    * \>: redirect standard output
+    * \>>: append standard output
+    * 2>: redirect standard error
+    * 2>>: append standard error
+    * <: redirect standard input
 * [Useful commands](#useful-commands)
 * [Nice to have commands](#nice-to-have-commands)
 * [Shortcuts](#shortcuts)
@@ -46,7 +52,7 @@ command -options arguments
     man -k <command_name>
     man -k passwd
     ```
-  * Read the mannual page of a command in a specific session
+  * Read the manual page of a command in a specific session
     ```s
     man 1 passwd
     ```
@@ -102,23 +108,23 @@ command -options arguments
     cd /   // go to the root directory
     cd -   // go to the previous directory
     ```
-  * **A single dot (.)**: the reference to the current diretory
+  * **A single dot (.)**: the reference to the current directory
   * **Double dots (..)**: are the reference to the parent directory
   * **/**: the root directory
   * **~**: the user HOME directory
   * Overview of the directories in linux:
-    * **/bin**: "bin" is short for "binary directory". This directory contains lots of exectable programs.
-    * **/etc**: contains configration (setting) files and initialization scripts.
+    * **/bin**: "bin" is short for "binary directory". This directory contains lots of executable programs.
+    * **/etc**: contains configuration (setting) files and initialization scripts.
     * **/media**: accesses the contents of the removable media, such as usb drive and sd card.
-    * **/var**: "var" is short for "varaible". This directory contains files related with logging, the outputs from other programs, and caches.
+    * **/var**: "var" is short for "variable". This directory contains files related with logging, the outputs from other programs, and caches.
     * **/root**: is the home directory of the super user (root user), which is different from "/".
-    * **/usr**: contains exectable files, libraies. If you install a software, it will be most likely in this folder.
+    * **/usr**: contains executable files, libraries. If you install a software, it will be most likely in this folder.
 
 #### Creating files and folders
 [Back to TOC](#table-of-contents) 
 * touch
   * Change file timestamps (the original intended use of **touch** ^0^)
-  * Create a **new** file or mutiple **new** files **if not exist**
+  * Create a **new** file or multiple **new** files **if not exist**
     ```s
     touch <file_path_and_file_name>
     touch <file_name_1> <file_name_2> // creating multiple files in the current directory
@@ -134,7 +140,7 @@ command -options arguments
     mkdir <file_name_1> <file_name_2>
     mkdir <file_path_and_file_name>
     ```
-  * If you want to make mutiple nested directoris, you can use ***-p*** option.
+  * If you want to make multiple nested directories, you can use ***-p*** option.
     ```s
     // this command will show ERROR if animals or cats directory is not available
     mkdir animals/cats/small_cats
@@ -161,7 +167,7 @@ command -options arguments
     ```s
     rm -r <directories> // be careful when you run this command
     rm -R <directories> // be careful when you run this command
-    rm -ri <directories> // remove the file and directories interatively
+    rm -ri <directories> // remove the file and directories interactively
     ```
   * 
 * mv
@@ -170,13 +176,13 @@ command -options arguments
     mv <source> <destination> // destination directory is exist
     mv <source_1> <source_2> <destination> // destination directory is exist
     ```
-  * Rename **a single** file or **a single** dirctory
+  * Rename **a single** file or **a single** directory
     ```s
     mv <original_name> <new_name> 
     mv <original_dir_and_name> <new_dir_and_name> 
     ```
 * cp
-  * Copy files and directoris
+  * Copy files and directories
     ```s
     cp <source> <destination>
     cp <file_name> <new_file_name>
@@ -190,7 +196,7 @@ command -options arguments
     ```s
     cat <file_name>
     ```
-  * Related (but less importand) commands
+  * Related (but less important) commands
     * tac
       * Concatenates and prints the contents of files to the terminal in **reverse** order for each line
         ```s
@@ -232,7 +238,7 @@ command -options arguments
     tail -5 <file_name> // set how many lines to print out
     ```
 * wc
-  * This command prints counts the number of lines, words, and characters in one or mutiple files 
+  * This command prints counts the number of lines, words, and characters in one or multiple files 
     ```s
     wc <file_name>
     wc <file_name_1> <file_name_2>
@@ -262,10 +268,10 @@ command -options arguments
     sort <file_name> // case insensitive, lower case come first
     sort -r <file_name> // sort with reverse order
     sort -n <file_name_with_numbers> // sort by comparing the numeric values in each line
-    sort -u <file_name> // sort and only keep uqiue values
+    sort -u <file_name> // sort and only keep unique values
     ```
 * nano
-  * nano is a program that we can use to open and edit files from the commandline
+  * nano is a program that we can use to open and edit files from the command line
     ```s
     nano <file_path_and_file_name>
     ```
@@ -276,11 +282,11 @@ command -options arguments
     * **Ctrl + s**: save the file changes
     * **Ctrl + c**: cancel
     * **Ctrl + g**: go to help manual
-    * **Ctrl + w**: serach
-    * **Ctrl + \\**: serach and replace
+    * **Ctrl + w**: search
+    * **Ctrl + \\**: search and replace
     * **Ctrl + t**: use spell checker
       * spell check is disabled by default. 
-      * we can enable the spell check by editing the configration file located at `/etc/nanorc` using `sodu nano /etc/nanorc`
+      * we can enable the spell check by editing the configuration file located at `/etc/nanorc` using `sudo nano /etc/nanorc`
     * **Alt + u (M-U)**: undo
     * **Alt + e**: redo
     * **Alt + s**: Soft wrapping of overlong lines enable/disable
@@ -288,6 +294,54 @@ command -options arguments
     ```s
     nano <file_name_that_to_be_created>
     ```
+#### Redirection
+[Back to TOC](#table-of-contents)
+* \>
+  * Redirect standard output to a given file using `>`. The file will be completely **overwritten**.
+    ```s
+    command [options and argument] > file_name
+    ```
+* \>>
+  * **Append** the standard output to a given file using `>>`.
+    ```s
+    command [options and argument] >> file_name
+    ```
+* 2>
+  * Redirect standard error to a given file using `2>`. The file will be completely **overwritten**.
+    ```s
+    command [options and argument] 2> file_name
+    ```
+* 2>>
+  * **Append** the standard error to a given file using `2>>`
+    ```s
+    command [options and argument] 2>> file_name
+    ```
+* <
+  * Redirect standard input using `<`.
+  * Standard input usually refers to the keyboard. We can use `<` to redirect the standard input from other sources, such as a file.
+    ```s
+    command [options and argument] < input_file_name // This is different from command [options and argument] input_file_name
+    ```
+  * I want to use `cat` as an example to further illustrate the differences between `command file_name` and `command < file_name`. 
+    * `cat README.md` and `cat < README.md` use different mechanisms although their outputs are identical. 
+      * Here is the user manual of `cat` command:
+        ```
+        NAME
+         cat - concatenate files and print on the standard output
+
+        SYNOPSIS
+              cat [OPTION]... [FILE]...
+
+        DESCRIPTION
+              Concatenate FILE(s) to standard output.
+
+              With no FILE, or when FILE is -, read standard input.
+        ...
+        ```
+      * `cat README.md` use SYNOPSIS format: `cat [OPTION]... [FILE]...`. So README.md is a FILE for cat command.
+      * `cat < README.md` means there is no FILE for cat, so "read standard input" instead. "< README.md" is the standard input.
+
+
 ### Useful commands
 [Back to TOC](#table-of-contents) 
 * clear
@@ -305,7 +359,7 @@ command -options arguments
     ```
   * You can rerun the history commands using "!+history_id"
     ```s
-    history // this list the hisotry commands with id
+    history // this list the history commands with id
     !7 // run the command of id 7 in the history
     ```
   * You can use "Ctrl + r" to search history
@@ -316,7 +370,7 @@ command -options arguments
     type <command_name>
     ```
   * There are four types of commands:
-    * An executable program which usually sotred in /bin, /usr/bin, or /usr/local/bin. These are comipled binary files (hence bin)
+    * An executable program which usually stored in /bin, /usr/bin, or /usr/local/bin. These are compiled binary files (hence bin)
     * A built-in shell command. These commands are part of the shell, such as bash and zsh.
     * A shell function.
     * An alias.
@@ -341,7 +395,7 @@ command -options arguments
 * date
   * Print out the time of the system
 * ncal 
-  * Print out a vertical calander of current month
+  * Print out a vertical calender of current month
   * Print out the calendar of the entire year: 
     ```s
     ncal 2025
@@ -364,4 +418,4 @@ command -options arguments
 * **Ctrl + k**: kill the text from the current cursor to the end of the line.
 * **Ctrl + u**: kill the text from the current cursor to the beginning of the line.
 * **Alt + d**: kill the text from the current cursor to the end of the word.
-* **Ctrl + d**: kill the charactor in the current cursor.
+* **Ctrl + d**: kill the character in the current cursor.
