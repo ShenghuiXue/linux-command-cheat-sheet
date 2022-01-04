@@ -1,5 +1,4 @@
 # The basic linux commands cheat sheet
-This cheat sheet created based on the Udemy online course by Colt Steele: [The Linux Command Line Bootcamp: Beginner To Power User](https://www.udemy.com/course/the-linux-command-line-bootcamp/).
 
 ## Table of contents
 * [Basic command structure](#basic-command-structure)
@@ -31,8 +30,6 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
     * 2>>: append standard error
     * <: redirect standard input
   * [Piping](#piping)
-    * |
-    * tee
 * [Useful commands](#useful-commands)
 * [Nice to have commands](#nice-to-have-commands)
 * [Shortcuts](#shortcuts)
@@ -347,26 +344,10 @@ command -options arguments
 ### Piping
 [Back to TOC](#table-of-contents)
 * |
-  * We use the pipe character(`|`) to connect two commands. The output of the first command will be passed to the standard input of the second command.
+  * We use the pipe character(`|`) to separate two commands. The output of the first command will be passed to the standard input of the second command.
     ```s
     command_1 | command_2
     ```
-  * examples of using piping:
-    ```s
-    ls /bin -l | less
-    ls /bin -l | wc -l
-    ncal | tac | rev  // pip three commands
-    ```
-* tee
-  * The tee command reads the standard input and **copies** the standard input **both** to the standard output **AND** to a file. 
-  * This allows to capture information part of the way through a pip without interrupting the flow. 
-  * Examples:
-    ```s
-    command_1 | tee output_file | command_2
-    cat README.md | tee output.txt | wc -w
-    du -ha /usr/bin/ | sort -h | tee sizes.txt | tail -4 | head -3
-    ```
-    * `cat README.md | tee output.txt | wc -w`: `cat` read the README.md file. Then, `tee` took the standard output from `cat` as its own standard input, wrote this standard input into output.txt, and sent the same information as standard output of `tee`. Then, `wc -w` took the standard output from `tee` as its own standard input and count number of words and sent out the result (word count) as standard output. 
 
 ## Useful commands
 [Back to TOC](#table-of-contents) 
