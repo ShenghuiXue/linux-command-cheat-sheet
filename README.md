@@ -33,6 +33,9 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
   * [Piping](#piping)
     * |
     * tee
+  * [Finding things](#finding-things)
+    * locate
+    * find
 * [Useful commands](#useful-commands)
 * [Nice to have commands](#nice-to-have-commands)
 * [Shortcuts](#shortcuts)
@@ -41,6 +44,8 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
   * tilde expansion
   * brace expansion
   * arithmetic expansion
+  * single and double quotes
+  * command substitution
 
 ## Basic command structure
 ```s
@@ -372,7 +377,10 @@ command -options arguments
     du -ha /usr/bin/ | sort -h | tee sizes.txt | tail -4 | head -3
     ```
     * `cat README.md | tee output.txt | wc -w`: `cat` read the README.md file. Then, `tee` took the standard output from `cat` as its own standard input, wrote this standard input into output.txt, and sent the same information as standard output of `tee`. Then, `wc -w` took the standard output from `tee` as its own standard input and count number of words and sent out the result (word count) as standard output. 
-
+### Finding things
+[Back to TOC](#table-of-contents)
+* locate
+* find
 ## Useful commands
 [Back to TOC](#table-of-contents) 
 * clear
@@ -492,7 +500,8 @@ command -options arguments
 * Arithmetic expansion
   * The shell perform arithmetic via expansion using the `$((arithmetic expression))` syntax.
     ```s
-    echo $((2+3)) // output: 5
+    echo $((2+3))  // output: 5
+    echo $((2**5)) // output: 32
     ```
     | operator | meaning |
     | :----: | :------ |
@@ -502,3 +511,33 @@ command -options arguments
     | / | division |
     | ** | exponentiation |
     | % | modulo (reminder operator)
+  * Arithmetic expression in bash seems only works with whole number, such as long and integer.
+* Quoting expansion
+  * Double quotes (`" "`)
+    * If we wrap text in double quotes, the shell will respect our spacing and will ignore special characters **except for dollar sign ($), backslash (\\), and back ticks (`)**.
+      ```s
+      echo "look at   me"     // output: look at   me
+      echo "{1..9"}           // output: {1..9}
+      echo "path: $PATH"      // output: path: /usr/local/sbin:/usr/local/bin:/usr/sbin
+      echo "today is $(date)" // output: today is Tue 04 Jan 2022 07:36:28 AM CST
+      ```
+    * Pathname expansion, brace expansion, and word splitting will be ignored.
+    * However, command substitution and arithmetic expansion are still performed because dollar sign still have meaning inside of double quote
+  * Single quotes (`' '`)
+    * Single quotes in shell suppress all forms of substitutions.
+      ```s
+      echo 'path: $PATH'      // output: path: $PATH
+      echo 'today is $(date)' // output: today is $(date)
+      ```
+* Command substitution
+  * We can use `$(command_2)` syntax to display output of this command_2.
+    ```s
+    echo "today is $(date)" // output: today is Tue 04 Jan 2022 07:36:28 AM CST
+    ```
+  * We can also use `` syntax to display output of command inside of back ticks.
+    ```s
+    echo "today is `date`" // output: today is Tue 04 Jan 2022 07:36:28 AM CST
+    echo today is `date`   // output: today is Tue 04 Jan 2022 07:36:28 AM CST
+    `echo node`            // This will open the node console for me 
+    ```
+  
