@@ -36,6 +36,11 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
 * [Useful commands](#useful-commands)
 * [Nice to have commands](#nice-to-have-commands)
 * [Shortcuts](#shortcuts)
+* [Expansion](#expansion)
+  * pathname expansion
+  * tilde expansion
+  * brace expansion
+  * arithmetic expansion
 
 ## Basic command structure
 ```s
@@ -445,3 +450,55 @@ command -options arguments
 * **Ctrl + u**: kill the text from the current cursor to the beginning of the line.
 * **Alt + d**: kill the text from the current cursor to the end of the word.
 * **Ctrl + d**: kill the character in the current cursor.
+
+## Expansion
+[Back to TOC](#table-of-contents)
+* Pathname expansion
+  * Wildcard characters:
+    | character | meaning | example |
+    | :-------: | :--------------------------------:| :---------------- |
+    | * | Represent **zero or more** characters | `cat *.txt`       |
+    | ? | Represent any **single** character | `ls pic?.png`     |
+    | [] | Inside of square brackets we can specify **a range of** character to match  | `ls [A-F]*.txt` | 
+    | [^] | Inside of square brackets we can specify **a range of** character to **NOT** match | `ls [^aApP]*.txt` |
+* Tilde expansion
+  * `~` expansion refers to the HOME directory of the current user.
+    ```s
+    ls ~/Documents
+    ```
+* Brace expansion
+  * Brace expression (`{}`) is used to generate arbitrary strings. Basically, it will generate multiple strings for us based on a pattern. We provide a set of strings inside of braces, as well as optional surrounding prefix and suffixes.
+  * The specified strings are used to generate all possible combinations with optional prefixes and suffixes. 
+  * The command below will create three files: page1.txt, page2.txt, page3.txt
+    ```s
+    touch page{1,2,3}.txt
+    ```
+  * The command below will create 5 files based on the range {1..5}: t1.txt, t2.txt, t3.txt, t4.txt, t5.txt
+    ```s
+    touch t{1..5}.txt
+    ```
+  * We can also provide an interval like this example below
+    ```s
+    mkdir t{1..10..4} // {1..10..4} means increasing from 1 to 10 with an interval of 4
+    ```
+  * {} works for the letters as well
+    ```s
+    echo {a..m}
+    ```
+  * We can next {} inside a {}
+    ```s
+    echo {x,y{1..5},z} // output: x y1 y2 y3 y4 y5 z
+    ```
+* Arithmetic expansion
+  * The shell perform arithmetic via expansion using the `$((arithmetic expression))` syntax.
+    ```s
+    echo $((2+3)) // output: 5
+    ```
+    | operator | meaning |
+    | :----: | :------ |
+    | + | addition |
+    | - | subtraction |
+    | * | multiplication |
+    | / | division |
+    | ** | exponentiation |
+    | % | modulo (reminder operator)
