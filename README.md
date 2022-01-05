@@ -422,6 +422,25 @@ command -options arguments
     find ~/Documents -name "R*.md"
     find ~ -name "*.txt" -type f
     ```
+  * We can use `-size` option find files by size.
+    ```s
+    find -size +1G  // find all files that are larger than 1G
+    find -size -50M // find all files that are under 50 megabytes
+    find -size 20k  // find all file that are exactly 20 kilobytes 
+    ```
+  * We can use `-user` option find the files and folders owned by a specific user.
+    ```s
+    sudo find /home -user kitty
+    ```
+  * We can use `-empty` find any empty files and folders that are currently empty.
+    ```s
+    find -empty
+    find ~ -empty -type d
+    find .. -empty -type f
+    rm $(find . -empty -type f) // remove all empty files in the current and the nested child directories
+    rm `find . -empty -type d` // remove all empty nested directories
+    ```
+
 
 ## Useful commands
 ###### [Back to TOC](#table-of-contents) 
