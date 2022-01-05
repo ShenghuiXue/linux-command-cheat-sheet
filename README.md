@@ -53,8 +53,6 @@ command -options arguments
 ```
 
 ## Important commands
-###### [Back to TOC](#table-of-contents)
-
 ### Manual command
 ###### [Back to TOC](#table-of-contents)
 * man
@@ -508,13 +506,22 @@ command -options arguments
 ###### [Back to TOC](#table-of-contents)
 * Pathname expansion
   * Wildcard characters:
-
-    | character | meaning | example |
-    | :-------: | :--------------------------------:| :---------------- |
-    | * | Represent **zero or more** characters | `cat *.txt`       |
-    | ? | Represent any **single** character | `ls pic?.png`     |
-    | [] | Inside of square brackets we can specify **a range of** characters to match  | `ls [A-F]*.txt` | 
-    | [^] | Inside of square brackets we can specify **a range of** characters to **NOT** match | `ls [^aApP]*.txt` |
+    * `*`: represents **zero or more** characters.
+      ```s
+      cat *.txt
+      ```  
+    * `?`: represents any **single** character.
+      ```s
+      less READM?.md
+      ```
+    * `[ ]`: we can specify **a range of** characters to match inside of square brackets(`[]`).
+      ```s
+      `ls [A-F]*.txt` 
+      ```
+    * `[^ ]`:we can specify **a range of** characters to **NOT** match Inside of square brackets(`[^]`).
+      ```s
+      ls [^aApP]*.txt
+      ```
 
 * Tilde expansion
   * `~` expansion refers to the HOME directory of the current user.
@@ -552,17 +559,15 @@ command -options arguments
     echo $((2+3))  // output: 5
     echo $((2**5)) // output: 32
     ```
-    
-    | operator | meaning |
-    | :----: | :------ |
-    | + | addition |
-    | - | subtraction |
-    | * | multiplication |
-    | / | division |
-    | ** | exponentiation |
-    | % | modulo (reminder operator)
+  * Here is a list of arithmetic operations:
+    * `+`:  addition
+    * `-`: subtraction
+    * `*`: multiplication
+    * `/`: division
+    * `**`: exponentiation
+    * `%`: modulo (reminder operator)
 
-  * Arithmetic expression in bash seems to only work with whole number, such as long and integer.
+  * Arithmetic expression in bash seems to only work with **whole number**, such as long and integer.
 
 * Quoting expansion
   * Double quotes (`" "`)
@@ -582,11 +587,11 @@ command -options arguments
       echo 'today is $(date)' // output: today is $(date)
       ```
 * Command substitution
-  * We can use `$(command_2)` syntax to display output of this command_2.
+  * We can use `$(command_2)` syntax to display the output of this command_2.
     ```s
     echo "today is $(date)" // output: today is Tue 04 Jan 2022 07:36:28 AM CST
     ```
-  * We can also use `` syntax to display output of command inside of back ticks.
+  * We can also use `` syntax to display the output of command inside of back ticks.
     ```s
     echo "today is `date`" // output: today is Tue 04 Jan 2022 07:36:28 AM CST
     echo today is `date`   // output: today is Tue 04 Jan 2022 07:36:28 AM CST
