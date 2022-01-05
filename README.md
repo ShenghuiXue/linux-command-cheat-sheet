@@ -379,8 +379,44 @@ command -options arguments
     * `cat README.md | tee output.txt | wc -w`: `cat` read the README.md file. Then, `tee` took the standard output from `cat` as its own standard input, wrote this standard input into output.txt, and sent the same information as standard output of `tee`. Then, `wc -w` took the standard output from `tee` as its own standard input and count number of words and sent out the result (word count) as standard output. 
 ### Finding things
 [Back to TOC](#table-of-contents)
-* locate
+* locate, mlocate
+  * Perform a fast search of pathnames across my machine that match a given substring and then prints out any matching names. 
+  * The search is case sensitive by default.
+    ```s
+    locate README.md
+    mlocate README.md
+    ```
+  * Use -i to ignore casing.
+    ```s
+    locate -i MvN
+    ```
+  * Use -e will return the files that are actually exists. Check `man locate` for details.
+    ```s
+    locate -e README.md
+    ```
+  * The path information is saved in a database. This database is periodically updated. locate/mlocate identify pathnames/patterns against the database. It is possible that the database is not updated so the output from locate/mlocate command is not accurate. We can use `sudo updatedb` to update this database.
 * find
+  * Find command is much slower than locate command.
+  * Find is case sensitive by default.
+  * By default, find command on its own will list every single file and directory nested in our current working dir.
+    ```s
+    find
+    ```
+  * If we provide a folder as the argument, then find command will print out all the files and directories inside of the provided directory.
+    ```s
+    find ./../
+    ```
+  * We can provide `-type` option to ask for only print files or directories, symbolic links.
+    * `find -type f` will limit the search to files
+    * `find -type d` will limit the search to directories.
+      ```s
+      find ~/Documents -type d
+      ```
+  * We can use `-name` option to search for a specific pattern.
+    ```s
+    find ~/Documents -name "R*.md"
+    find ~ -name "*.txt" -type f
+    ```
 ## Useful commands
 [Back to TOC](#table-of-contents) 
 * clear
