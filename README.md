@@ -508,17 +508,20 @@ command -options arguments
 ###### [Back to TOC](#table-of-contents)
 * Pathname expansion
   * Wildcard characters:
+
     | character | meaning | example |
     | :-------: | :--------------------------------:| :---------------- |
     | * | Represent **zero or more** characters | `cat *.txt`       |
     | ? | Represent any **single** character | `ls pic?.png`     |
     | [] | Inside of square brackets we can specify **a range of** characters to match  | `ls [A-F]*.txt` | 
     | [^] | Inside of square brackets we can specify **a range of** characters to **NOT** match | `ls [^aApP]*.txt` |
+
 * Tilde expansion
   * `~` expansion refers to the HOME directory of the current user.
     ```s
     ls ~/Documents
     ```
+
 * Brace expansion
   * Brace expression (`{}`) is used to generate arbitrary strings. Basically, it will generate multiple strings for us based on a pattern. We provide a set of strings inside of braces, as well as optional surrounding prefix and suffixes.
   * The specified strings are used to generate all possible combinations with optional prefixes and suffixes. 
@@ -542,12 +545,14 @@ command -options arguments
     ```s
     echo {x,y{1..5},z} // output: x y1 y2 y3 y4 y5 z
     ```
+
 * Arithmetic expansion
   * The shell perform arithmetic via expansion using the `$((arithmetic expression))` syntax.
     ```s
     echo $((2+3))  // output: 5
     echo $((2**5)) // output: 32
     ```
+    
     | operator | meaning |
     | :----: | :------ |
     | + | addition |
@@ -556,7 +561,9 @@ command -options arguments
     | / | division |
     | ** | exponentiation |
     | % | modulo (reminder operator)
+
   * Arithmetic expression in bash seems to only work with whole number, such as long and integer.
+
 * Quoting expansion
   * Double quotes (`" "`)
     * If we wrap text in double quotes, the shell will respect our spacing and will ignore special characters **except for dollar sign ($), backslash (\\), and back ticks (`)**.
