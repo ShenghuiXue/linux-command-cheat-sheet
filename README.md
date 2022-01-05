@@ -31,7 +31,7 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
     * 2>>: append standard error
     * <: redirect standard input
   * [Piping](#piping)
-    * |
+    * `|`
     * tee
   * [Finding things](#finding-things)
     * locate
@@ -360,7 +360,7 @@ command -options arguments
 
 ### Piping
 ###### [Back to TOC](#table-of-contents)
-* |
+* `|`
   * We use the pipe character(`|`) to connect two commands. The output of the first command will be passed to the standard input of the second command.
     ```s
     command_1 | command_2
