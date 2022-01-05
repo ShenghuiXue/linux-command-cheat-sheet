@@ -503,8 +503,8 @@ command -options arguments
     | :-------: | :--------------------------------:| :---------------- |
     | * | Represent **zero or more** characters | `cat *.txt`       |
     | ? | Represent any **single** character | `ls pic?.png`     |
-    | [] | Inside of square brackets we can specify **a range of** character to match  | `ls [A-F]*.txt` | 
-    | [^] | Inside of square brackets we can specify **a range of** character to **NOT** match | `ls [^aApP]*.txt` |
+    | [] | Inside of square brackets we can specify **a range of** characters to match  | `ls [A-F]*.txt` | 
+    | [^] | Inside of square brackets we can specify **a range of** characters to **NOT** match | `ls [^aApP]*.txt` |
 * Tilde expansion
   * `~` expansion refers to the HOME directory of the current user.
     ```s
@@ -547,7 +547,7 @@ command -options arguments
     | / | division |
     | ** | exponentiation |
     | % | modulo (reminder operator)
-  * Arithmetic expression in bash seems only works with whole number, such as long and integer.
+  * Arithmetic expression in bash seems to only work with whole number, such as long and integer.
 * Quoting expansion
   * Double quotes (`" "`)
     * If we wrap text in double quotes, the shell will respect our spacing and will ignore special characters **except for dollar sign ($), backslash (\\), and back ticks (`)**.
