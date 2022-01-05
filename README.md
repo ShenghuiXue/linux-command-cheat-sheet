@@ -53,9 +53,10 @@ command -options arguments
 ```
 
 ## Important commands
-[Back to TOC](#table-of-contents) 
+###### [Back to TOC](#table-of-contents)
+
 ### Manual command
-[Back to TOC](#table-of-contents) 
+###### [Back to TOC](#table-of-contents)
 * man
   * Read the manual page of a command
     ```s
@@ -74,8 +75,9 @@ command -options arguments
     ```s
     help cd
     ```
+
 ### Navigation commands
-[Back to TOC](#table-of-contents) 
+###### [Back to TOC](#table-of-contents) 
 * pwd
   * Print the working directory
 * ls
@@ -135,7 +137,7 @@ command -options arguments
     * **/usr**: contains executable files, libraries. If you install a software, it will be most likely in this folder.
 
 ### Creating files and folders
-[Back to TOC](#table-of-contents) 
+###### [Back to TOC](#table-of-contents) 
 * touch
   * Change file timestamps (the original intended use of **touch** ^0^)
   * Create a **new** file or multiple **new** files **if not exist**
@@ -163,8 +165,9 @@ command -options arguments
     // animals and cats directories are not available
     mkdir -p animals/cats/small_cats 
     ```
+
 ### Deleting, copying, and moving
-[Back to TOC](#table-of-contents) 
+###### [Back to TOC](#table-of-contents) 
 * rm
   * Remove files and directories from our machine
   * Remove files. The deleted file cannot be redo and **cannot be found from the trash can**.
@@ -203,8 +206,9 @@ command -options arguments
     cp <source_1> <source_2> <destination_dir>
     cp -r <dir_name> <destination_dir> // use -r to copy directory recursively
     ```
+
 ### Working with files
-[Back to TOC](#table-of-contents) 
+###### [Back to TOC](#table-of-contents) 
 * cat
   * Concatenates and prints the contents of files to the terminal
     ```s
@@ -308,8 +312,9 @@ command -options arguments
     ```s
     nano <file_name_that_to_be_created>
     ```
+
 ### Redirection
-[Back to TOC](#table-of-contents)
+###### [Back to TOC](#table-of-contents)
 * \>
   * Redirect standard output to a given file using `>`. The file will be completely **overwritten**.
     ```s
@@ -354,8 +359,9 @@ command -options arguments
         ```
       * `cat README.md` use SYNOPSIS format: `cat [OPTION]... [FILE]...`. So README.md is a FILE for cat command.
       * `cat < README.md` means there is no FILE for cat, so "read standard input" instead. "< README.md" is the standard input.
+
 ### Piping
-[Back to TOC](#table-of-contents)
+###### [Back to TOC](#table-of-contents)
 * |
   * We use the pipe character(`|`) to connect two commands. The output of the first command will be passed to the standard input of the second command.
     ```s
@@ -377,8 +383,9 @@ command -options arguments
     du -ha /usr/bin/ | sort -h | tee sizes.txt | tail -4 | head -3
     ```
     * `cat README.md | tee output.txt | wc -w`: `cat` read the README.md file. Then, `tee` took the standard output from `cat` as its own standard input, wrote this standard input into output.txt, and sent the same information as standard output of `tee`. Then, `wc -w` took the standard output from `tee` as its own standard input and count number of words and sent out the result (word count) as standard output. 
+
 ### Finding things
-[Back to TOC](#table-of-contents)
+###### [Back to TOC](#table-of-contents)
 * locate, mlocate
   * Perform a fast search of pathnames across my machine that match a given substring and then prints out any matching names. 
   * The search is case sensitive by default.
@@ -417,8 +424,9 @@ command -options arguments
     find ~/Documents -name "R*.md"
     find ~ -name "*.txt" -type f
     ```
+
 ## Useful commands
-[Back to TOC](#table-of-contents) 
+###### [Back to TOC](#table-of-contents) 
 * clear
   * Clear the terminal
 * file
@@ -466,7 +474,7 @@ command -options arguments
     ```
 
 ## Nice to have commands
-[Back to TOC](#table-of-contents) 
+###### [Back to TOC](#table-of-contents) 
 * date
   * Print out the time of the system
 * ncal 
@@ -479,8 +487,9 @@ command -options arguments
     ```s
     ncal jan 2022
     ```
+
 ## Shortcuts
-[Back to TOC](#table-of-contents)
+###### [Back to TOC](#table-of-contents)
 * **Ctrl + a**: jump the cursor at the begin of the line.
 * **Ctrl + e**: jump the cursor at the end of the line.
 * **Ctrl + f**: move the cursor forward for one character.
@@ -496,7 +505,7 @@ command -options arguments
 * **Ctrl + d**: kill the character in the current cursor.
 
 ## Expansion
-[Back to TOC](#table-of-contents)
+###### [Back to TOC](#table-of-contents)
 * Pathname expansion
   * Wildcard characters:
     | character | meaning | example |
