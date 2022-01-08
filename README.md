@@ -5,37 +5,37 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
 * [Basic command structure](#basic-command-structure)
 * [Important commands](#important-commands)
   * [manual command](#manual-command)
-    * man
+    * `man`
   * [navigation commands](#navigation-commands)
-    * pwd
-    * ls
-    * cd
+    * `pwd`
+    * `ls`
+    * `cd`
   * [creating files and folders](#creating-files-and-folders)
-    * touch
-    * mkdir
+    * `touch`
+    * `mkdir`
   * [deleting, copying, and moving](#deleting-copying-and-moving)
-    * rm
-    * mv
-    * cp
+    * `rm`
+    * `mv`
+    * `cp`
   * [working with files](#working-with-files)
-    * cat (tac, rev)
-    * less
-    * head and tail
-    * wc
-    * sort
-    * nano
+    * `cat (tac, rev)`
+    * `less`
+    * `head and tail`
+    * `wc`
+    * `sort`
+    * `nano`
   * [Redirection](#redirection)
-    * \>: redirect standard output
-    * \>>: append standard output
-    * 2>: redirect standard error
-    * 2>>: append standard error
+    * `>`: redirect standard output
+    * `>>`: append standard output
+    * `2>`: redirect standard error
+    * `2>>`: append standard error
     * <: redirect standard input
   * [Piping](#piping)
     * `|`
-    * tee
+    * `tee`
   * [Finding things](#finding-things)
-    * locate
-    * find
+    * `locate`
+    * `find`
 * [Useful commands](#useful-commands)
 * [Nice to have commands](#nice-to-have-commands)
 * [Shortcuts](#shortcuts)
