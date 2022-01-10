@@ -440,7 +440,49 @@ command -options arguments
     rm $(find . -empty -type f) // remove all empty files in the current and the nested child directories
     rm `find . -empty -type d` // remove all empty nested directories
     ```
+  * We can find by time.
+    * There are three types of time for a file in the linux system:
+      * **mtime**, or modification time, shows when a file was last modified
+        ```s
+        ls -l // shows the modified time
+        ```
+      * **ctime**, or change time, shows when a file was last changed. This occurs anytime mtime changes but also when when we rename a file, move it, or alter permissions.
+        ```s
+        ls -lc // -c stands for the change time
+        ```
+      * **atime**, or access time, is updated when a file is read by an application or a command like `cat`.
+        ```s
+        ls -lu // -u stands for the access time
+        ```
+    * We can find files and directories that are modified/changed/accessed based on the ime. Here are some examples.
+      * Find all files and directories (under the current and the nested directories) that are modified(`-mmin`)/changed(`-cmin`)/accessed(`-amin`) at exactly 30 minutes, longer than 30 minutes, less than 30 minutes.
+        ```s
+        find -mmin 30   // modified for exactly 30 minutes
+        find -mmin -30  // modified less than 30 minutes ago
+        find -mmin +30  // modified longer than 30 minutes
 
+        find -cmin 30   // changed for exactly 30 minutes
+        find -cmin -30  // changed less than 30 minutes ago
+        find -cmin +30  // changed longer than 30 minutes
+
+        find -amin 30   // accessed for exactly 30 minutes
+        find -amin -30  // accessed less than 30 minutes ago
+        find -amin +30  // accessed longer than 30 minutes
+        ```
+      * `-atime`, `-ctime`, `-mtime` works similar to `-amin`, `-cmin`, and `-mtime`. The differences are `-atime 1` means accessed at exactly 1 **day** rather than 1 minute.
+        ```s
+        find -mtime 30   // modified for exactly 30 days
+        find -mtime -30  // modified less than 30 days ago
+        find -mtime +30  // modified longer than 30 days
+
+        find -ctime 30   // changed for exactly 30 days
+        find -ctime -30  // changed less than 30 days ago
+        find -ctime +30  // changed longer than 30 days
+
+        find -atime 30   // accessed for exactly 30 days
+        find -atime -30  // accessed less than 30 days ago
+        find -atime +30  // accessed longer than 30 days
+      ``` 
 
 ## Useful commands
 ###### [Back to TOC](#table-of-contents) 
@@ -567,7 +609,7 @@ command -options arguments
     ```s
     echo {a..m}
     ```
-  * We can next {} inside a {}
+  * We can nest {} inside a {}
     ```s
     echo {x,y{1..5},z} // output: x y1 y2 y3 y4 y5 z
     ```
