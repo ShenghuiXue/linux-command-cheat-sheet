@@ -482,7 +482,7 @@ command -options arguments
         find -atime 30   // accessed for exactly 30 days
         find -atime -30  // accessed less than 30 days ago
         find -atime +30  // accessed longer than 30 days
-      ``` 
+        ``` 
 
 ## Useful commands
 ###### [Back to TOC](#table-of-contents) 
