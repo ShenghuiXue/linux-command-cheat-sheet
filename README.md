@@ -454,8 +454,8 @@ command -options arguments
         ```s
         ls -lu // -u stands for the access time
         ```
-    * We can find files and directories that are modified/changed/accessed based on the ime. Here are some examples.
-      * Find all files and directories (under the current and the nested directories) that are modified(`-mmin`)/changed(`-cmin`)/accessed(`-amin`) at exactly 30 minutes, longer than 30 minutes, less than 30 minutes.
+    * We can find files and directories that are modified/changed/accessed based on the time. Here are some examples.
+      * Find all files and directories (under the current and the nested directories) that are modified(`-mmin`)/changed(`-cmin`)/accessed(`-amin`) at exactly 30 minutes, longer than 30 minutes, or less than 30 minutes.
         ```s
         find -mmin 30   // modified for exactly 30 minutes
         find -mmin -30  // modified less than 30 minutes ago
@@ -469,7 +469,7 @@ command -options arguments
         find -amin -30  // accessed less than 30 minutes ago
         find -amin +30  // accessed longer than 30 minutes
         ```
-      * `-atime`, `-ctime`, `-mtime` works similar to `-amin`, `-cmin`, and `-mtime`. The differences are `-atime 1` means accessed at exactly 1 **day** rather than 1 minute.
+      * `-atime`, `-ctime`, and `-mtime` work similar to `-amin`, `-cmin`, and `-mtime`. The difference is that `-atime 1` means accessed at exactly 1 **day** rather than 1 minute.
         ```s
         find -mtime 30   // modified for exactly 30 days
         find -mtime -30  // modified less than 30 days ago
