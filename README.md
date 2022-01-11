@@ -482,7 +482,13 @@ command -options arguments
         find -atime 30   # accessed for exactly 30 days
         find -atime -30  # accessed less than 30 days ago
         find -atime +30  # accessed longer than 30 days
-      ``` 
+        ``` 
+  * Use find command with logical operators:
+    * We can use `-and`, `-or`, and `-not` operators to create more complex queries.
+      ```s
+      find -name "*chick*" -or -name "*kitty*"
+      find -type -f -not -name "*.html"
+      ```
 
 ## Useful commands
 ###### [Back to TOC](#table-of-contents) 
