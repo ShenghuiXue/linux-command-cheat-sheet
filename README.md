@@ -29,7 +29,7 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
     * `>>`: append standard output
     * `2>`: redirect standard error
     * `2>>`: append standard error
-    * <: redirect standard input
+    * `<`: redirect standard input
   * [Piping](#piping)
     * `|`
     * `tee`
@@ -111,16 +111,16 @@ command -options arguments
   * Lists the contents of a directory and **sorted** by size
     ```s
     ls -s
-    ls --sort=time     // sort by time
+    ls --sort=time     # sort by time
     ```
 * cd
   * Change the directory
     ```s
     cd folder_dir
-    cd ..  // go to the parent directory
-    cd ~   // go to user HOME directory
-    cd /   // go to the root directory
-    cd -   // go to the previous directory
+    cd ..  # go to the parent directory
+    cd ~   # go to user HOME directory
+    cd /   # go to the root directory
+    cd -   # go to the previous directory
     ```
   * **A single dot (.)**: the reference to the current directory
   * **Double dots (..)**: are the reference to the parent directory
@@ -141,11 +141,11 @@ command -options arguments
   * Create a **new** file or multiple **new** files **if not exist**
     ```s
     touch <file_path_and_file_name>
-    touch <file_name_1> <file_name_2> // creating multiple files in the current directory
+    touch <file_name_1> <file_name_2> # creating multiple files in the current directory
     ```
   * You can create a new file in a specified directory as well:
     ```s
-    touch ~/abc.txt  // create a new file named abc.txt in the HOME directory
+    touch ~/abc.txt  # create a new file named abc.txt in the HOME directory
     ```
 * mkdir
   * Create new directories
@@ -156,11 +156,11 @@ command -options arguments
     ```
   * If you want to make multiple nested directories, you can use ***-p*** option.
     ```s
-    // this command will show ERROR if animals or cats directory is not available
+    # this command will show ERROR if animals or cats directory is not available
     mkdir animals/cats/small_cats
 
-    // this command will create all three directories even if 
-    // animals and cats directories are not available
+    # this command will create all three directories even if 
+    # animals and cats directories are not available
     mkdir -p animals/cats/small_cats 
     ```
 
@@ -180,16 +180,16 @@ command -options arguments
     ```
   * Remove directories and their contents recursively.
     ```s
-    rm -r <directories> // be careful when you run this command
-    rm -R <directories> // be careful when you run this command
-    rm -ri <directories> // remove the file and directories interactively
+    rm -r <directories> # be careful when you run this command
+    rm -R <directories> # be careful when you run this command
+    rm -ri <directories> # remove the file and directories interactively
     ```
   * 
 * mv
   * Move files and directories from one location to another location
     ```s
-    mv <source> <destination> // destination directory is exist
-    mv <source_1> <source_2> <destination> // destination directory is exist
+    mv <source> <destination> # destination directory is exist
+    mv <source_1> <source_2> <destination> # destination directory is exist
     ```
   * Rename **a single** file or **a single** directory
     ```s
@@ -202,7 +202,7 @@ command -options arguments
     cp <source> <destination>
     cp <file_name> <new_file_name>
     cp <source_1> <source_2> <destination_dir>
-    cp -r <dir_name> <destination_dir> // use -r to copy directory recursively
+    cp -r <dir_name> <destination_dir> # use -r to copy directory recursively
     ```
 
 ### Working with files
@@ -239,19 +239,19 @@ command -options arguments
   * Print a port of a file starting from beginning. By default, print the first 10 lines of a file.
     ```s
     head <file_name>
-    head -n 5 <file_name> // set how many lines to print out
-    head -n5 <file_name> // set how many lines to print out
-    head --lines 5 <file_name> // set how many lines to print out
-    head -5 <file_name> // set how many lines to print out
+    head -n 5 <file_name> # set how many lines to print out
+    head -n5 <file_name> # set how many lines to print out
+    head --lines 5 <file_name> # set how many lines to print out
+    head -5 <file_name> # set how many lines to print out
     ```
 * tail
   * Print a port of a file from the end By default, print the last 10 lines of a file.
     ```s
     tail <file_name>
-    tail -n 5 <file_name> // set how many lines to print out
-    tail -n5 <file_name> // set how many lines to print out
-    tail --lines 5 <file_name> // set how many lines to print out
-    tail -5 <file_name> // set how many lines to print out
+    tail -n 5 <file_name> # set how many lines to print out
+    tail -n5 <file_name> # set how many lines to print out
+    tail --lines 5 <file_name> # set how many lines to print out
+    tail -5 <file_name> # set how many lines to print out
     ```
 * wc
   * This command prints counts the number of lines, words, and characters in one or multiple files 
@@ -261,9 +261,9 @@ command -options arguments
     ```
   * Explain the output:
     ```s
-    // output
+    # output
     308  1703 10488 README.md
-    // README.md file has 308 lines, 1703 words, and 10488 characters
+    # README.md file has 308 lines, 1703 words, and 10488 characters
     ```
   * Lines count
     ```s
@@ -281,10 +281,10 @@ command -options arguments
 * sort
   * Sort each lines in a given file
     ```s
-    sort <file_name> // case insensitive, lower case come first
-    sort -r <file_name> // sort with reverse order
-    sort -n <file_name_with_numbers> // sort by comparing the numeric values in each line
-    sort -u <file_name> // sort and only keep unique values
+    sort <file_name> # case insensitive, lower case come first
+    sort -r <file_name> # sort with reverse order
+    sort -n <file_name_with_numbers> # sort by comparing the numeric values in each line
+    sort -u <file_name> # sort and only keep unique values
     ```
 * nano
   * nano is a program that we can use to open and edit files from the command line
@@ -337,7 +337,7 @@ command -options arguments
   * Redirect standard input using `<`.
   * Standard input usually refers to the keyboard. We can use `<` to redirect the standard input from other sources, such as a file.
     ```s
-    command [options and argument] < input_file_name // This is different from command [options and argument] input_file_name
+    command [options and argument] < input_file_name # This is different from command [options and argument] input_file_name
     ```
   * I want to use `cat` as an example to further illustrate the differences between `command file_name` and `command < file_name`. 
     * `cat README.md` and `cat < README.md` use different mechanisms although their outputs are identical. 
@@ -369,7 +369,7 @@ command -options arguments
     ```s
     ls /bin -l | less
     ls /bin -l | wc -l
-    ncal | tac | rev  // pip three commands
+    ncal | tac | rev  # pip three commands
     ```
 * tee
   * The tee command reads the standard input and **copies** the standard input **both** to the standard output **AND** to a file. 
@@ -424,9 +424,9 @@ command -options arguments
     ```
   * We can use `-size` option find files by size.
     ```s
-    find -size +1G  // find all files that are larger than 1G
-    find -size -50M // find all files that are under 50 megabytes
-    find -size 20k  // find all file that are exactly 20 kilobytes 
+    find -size +1G  # find all files that are larger than 1G
+    find -size -50M # find all files that are under 50 megabytes
+    find -size 20k  # find all file that are exactly 20 kilobytes 
     ```
   * We can use `-user` option find the files and folders owned by a specific user.
     ```s
@@ -437,52 +437,52 @@ command -options arguments
     find -empty
     find ~ -empty -type d
     find .. -empty -type f
-    rm $(find . -empty -type f) // remove all empty files in the current and the nested child directories
-    rm `find . -empty -type d` // remove all empty nested directories
+    rm $(find . -empty -type f) # remove all empty files in the current and the nested child directories
+    rm `find . -empty -type d` # remove all empty nested directories
     ```
   * We can find by time.
     * There are three types of time for a file in the linux system:
       * **mtime**, or modification time, shows when a file was last modified
         ```s
-        ls -l // shows the modified time
+        ls -l # shows the modified time
         ```
       * **ctime**, or change time, shows when a file was last changed. This occurs anytime mtime changes but also when when we rename a file, move it, or alter permissions.
         ```s
-        ls -lc // -c stands for the change time
+        ls -lc # -c stands for the change time
         ```
       * **atime**, or access time, is updated when a file is read by an application or a command like `cat`.
         ```s
-        ls -lu // -u stands for the access time
+        ls -lu # -u stands for the access time
         ```
-    * We can find files and directories that are modified/changed/accessed based on the time. Here are some examples.
-      * Find all files and directories (under the current and the nested directories) that are modified(`-mmin`)/changed(`-cmin`)/accessed(`-amin`) at exactly 30 minutes, longer than 30 minutes, or less than 30 minutes.
+    * We can find files and directories that are modified/changed/accessed based on the ime. Here are some examples.
+      * Find all files and directories (under the current and the nested directories) that are modified(`-mmin`)/changed(`-cmin`)/accessed(`-amin`) at exactly 30 minutes, longer than 30 minutes, less than 30 minutes.
         ```s
-        find -mmin 30   // modified for exactly 30 minutes
-        find -mmin -30  // modified less than 30 minutes ago
-        find -mmin +30  // modified longer than 30 minutes
+        find -mmin 30   # modified for exactly 30 minutes
+        find -mmin -30  # modified less than 30 minutes ago
+        find -mmin +30  # modified longer than 30 minutes
 
-        find -cmin 30   // changed for exactly 30 minutes
-        find -cmin -30  // changed less than 30 minutes ago
-        find -cmin +30  // changed longer than 30 minutes
+        find -cmin 30   # changed for exactly 30 minutes
+        find -cmin -30  # changed less than 30 minutes ago
+        find -cmin +30  # changed longer than 30 minutes
 
-        find -amin 30   // accessed for exactly 30 minutes
-        find -amin -30  // accessed less than 30 minutes ago
-        find -amin +30  // accessed longer than 30 minutes
+        find -amin 30   # accessed for exactly 30 minutes
+        find -amin -30  # accessed less than 30 minutes ago
+        find -amin +30  # accessed longer than 30 minutes
         ```
-      * `-atime`, `-ctime`, and `-mtime` work similar to `-amin`, `-cmin`, and `-mtime`. The difference is that `-atime 1` means accessed at exactly 1 **day** rather than 1 minute.
+      * `-atime`, `-ctime`, `-mtime` works similar to `-amin`, `-cmin`, and `-mtime`. The differences are `-atime 1` means accessed at exactly 1 **day** rather than 1 minute.
         ```s
-        find -mtime 30   // modified for exactly 30 days
-        find -mtime -30  // modified less than 30 days ago
-        find -mtime +30  // modified longer than 30 days
+        find -mtime 30   # modified for exactly 30 days
+        find -mtime -30  # modified less than 30 days ago
+        find -mtime +30  # modified longer than 30 days
 
-        find -ctime 30   // changed for exactly 30 days
-        find -ctime -30  // changed less than 30 days ago
-        find -ctime +30  // changed longer than 30 days
+        find -ctime 30   # changed for exactly 30 days
+        find -ctime -30  # changed less than 30 days ago
+        find -ctime +30  # changed longer than 30 days
 
-        find -atime 30   // accessed for exactly 30 days
-        find -atime -30  // accessed less than 30 days ago
-        find -atime +30  // accessed longer than 30 days
-        ``` 
+        find -atime 30   # accessed for exactly 30 days
+        find -atime -30  # accessed less than 30 days ago
+        find -atime +30  # accessed longer than 30 days
+      ``` 
 
 ## Useful commands
 ###### [Back to TOC](#table-of-contents) 
@@ -501,8 +501,8 @@ command -options arguments
     ```
   * You can rerun the history commands using "!+history_id"
     ```s
-    history // this list the history commands with id
-    !7 // run the command of id 7 in the history
+    history # this list the history commands with id
+    !7 # run the command of id 7 in the history
     ```
   * You can use "Ctrl + r" to search history
   * History commands are saved in "~/.bash_history", so you can find all the history commands using `nano ~/.bash_history`.
@@ -603,7 +603,7 @@ command -options arguments
     ```
   * We can also provide an interval like this example below
     ```s
-    mkdir t{1..10..4} // {1..10..4} means increasing from 1 to 10 with an interval of 4
+    mkdir t{1..10..4} # {1..10..4} means increasing from 1 to 10 with an interval of 4
     ```
   * {} works for the letters as well
     ```s
@@ -611,14 +611,14 @@ command -options arguments
     ```
   * We can nest {} inside a {}
     ```s
-    echo {x,y{1..5},z} // output: x y1 y2 y3 y4 y5 z
+    echo {x,y{1..5},z} # output: x y1 y2 y3 y4 y5 z
     ```
 
 * Arithmetic expansion
   * The shell perform arithmetic via expansion using the `$((arithmetic expression))` syntax.
     ```s
-    echo $((2+3))  // output: 5
-    echo $((2**5)) // output: 32
+    echo $((2+3))  # output: 5
+    echo $((2**5)) # output: 32
     ```
   * Here is a list of arithmetic operations:
     * `+`:  addition
@@ -634,28 +634,28 @@ command -options arguments
   * Double quotes (`" "`)
     * If we wrap text in double quotes, the shell will respect our spacing and will ignore special characters **except for dollar sign ($), backslash (\\), and back ticks (`)**.
       ```s
-      echo "look at   me"     // output: look at   me
-      echo "{1..9"}           // output: {1..9}
-      echo "path: $PATH"      // output: path: /usr/local/sbin:/usr/local/bin:/usr/sbin
-      echo "today is $(date)" // output: today is Tue 04 Jan 2022 07:36:28 AM CST
+      echo "look at   me"     # output: look at   me
+      echo "{1..9"}           # output: {1..9}
+      echo "path: $PATH"      # output: path: /usr/local/sbin:/usr/local/bin:/usr/sbin
+      echo "today is $(date)" # output: today is Tue 04 Jan 2022 07:36:28 AM CST
       ```
     * Pathname expansion, brace expansion, and word splitting will be ignored.
     * However, command substitution and arithmetic expansion are still performed because dollar sign still have meaning inside of double quote
   * Single quotes (`' '`)
     * Single quotes in shell suppress all forms of substitutions.
       ```s
-      echo 'path: $PATH'      // output: path: $PATH
-      echo 'today is $(date)' // output: today is $(date)
+      echo 'path: $PATH'      # output: path: $PATH
+      echo 'today is $(date)' # output: today is $(date)
       ```
 * Command substitution
   * We can use `$(command_2)` syntax to display the output of this command_2.
     ```s
-    echo "today is $(date)" // output: today is Tue 04 Jan 2022 07:36:28 AM CST
+    echo "today is $(date)" # output: today is Tue 04 Jan 2022 07:36:28 AM CST
     ```
   * We can also use `` syntax to display the output of command inside of back ticks.
     ```s
-    echo "today is `date`" // output: today is Tue 04 Jan 2022 07:36:28 AM CST
-    echo today is `date`   // output: today is Tue 04 Jan 2022 07:36:28 AM CST
-    `echo node`            // This will open the node console for me 
+    echo "today is `date`" # output: today is Tue 04 Jan 2022 07:36:28 AM CST
+    echo today is `date`   # output: today is Tue 04 Jan 2022 07:36:28 AM CST
+    `echo node`            # This will open the node console for me 
     ```
   
