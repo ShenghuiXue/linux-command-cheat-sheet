@@ -516,7 +516,7 @@ command -options arguments
     grep -c "I" README.md
     grep -cw "I" README.md  # -w mean match the whole words
     ```
-  * We can display the line numbers before or/and after the match using `-A`, `-B`, or `-C` options.
+  * We can display the lines before or/and after the match using `-A`, `-B`, or `-C` options.
     ```s
     grep "I" README.md -A1 # also display 1 line after the matched line
     grep "I" README.md -B2 # also display 2 lines before the matched line
