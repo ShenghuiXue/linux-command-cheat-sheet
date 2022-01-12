@@ -36,6 +36,8 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
   * [Finding things](#finding-things)
     * `locate`
     * `find`
+  * [Grep](#grep)
+    * `grep`
 * [Useful commands](#useful-commands)
 * [Nice to have commands](#nice-to-have-commands)
 * [Shortcuts](#shortcuts)
@@ -489,6 +491,42 @@ command -options arguments
       find -name "*chick*" -or -name "*kitty*"
       find -type -f -not -name "*.html"
       ```
+### Grep
+###### [Back to TOC](#table-of-contents)
+* grep
+  * The grep command searches for patterns in each file's content. Grep will print each line that matches a pattern we provide.
+    ```s
+    grep <PATTERN> <FILE>
+    grep "create" README.md
+    ```
+  * Grep by default is case sensitive. We can make it case in sensitive to use `-i` option.
+    ```s
+    grep -i "CrEaTe" README.md
+    ```
+  * Grep can be set to match exact the whole word using `-w` option.
+    ```s
+    grep -w "is" README.md
+    ```
+  * We can use `-r` option to perform a recursive search which will include all files under a directory, subdirectories and their files, and so on. If we don't specify the starting directories, grep will search the current working directory.
+    ```s
+    grep -r "code"
+    ```
+  * We can use `-c` option to count how many times dose a pattern appears.
+    ```s
+    grep -c "I" README.md
+    grep -cw "I" README.md  # -w mean match the whole words
+    ```
+  * We can display the line numbers before or/and after the match using `-A`, `-B`, or `-C` options.
+    ```s
+    grep "I" README.md -A1 # also display 1 line after the matched line
+    grep "I" README.md -B2 # also display 2 lines before the matched line
+    grep "I" README.md -C3 % als0 display 3 lines before and after the matched line
+    ```
+  * We can display the line number using `-n` option.
+    ```s
+    grep -n "I" README.md
+    ```
+
 
 ## Useful commands
 ###### [Back to TOC](#table-of-contents) 
