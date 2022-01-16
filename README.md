@@ -48,6 +48,7 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
   * arithmetic expansion
   * single and double quotes
   * command substitution
+* [Regular expression](#regular-expression)
 
 ## Basic command structure
 ```s
@@ -526,6 +527,11 @@ command -options arguments
     ```s
     grep -n "I" README.md
     ```
+  * We can use [regular expression](#regular-expression) to search defined patterns.
+    ```s
+    grep 'mac$' README.md # search the pattern "mac" at the end of the line
+    ```
+    * `grep` command can search for the linux basic regular expression and extended regular expression (with `-E` option). You can find a little bit more details in the [regular expression](#regular-expression) session.
 
 
 ## Useful commands
@@ -627,6 +633,7 @@ command -options arguments
       ```s
       ls [^aApP]*.txt
       ```
+    * See more in the [Regular Expression session](#regular-expression)
 
 * Tilde expansion
   * `~` expansion refers to the HOME directory of the current user.
@@ -702,4 +709,28 @@ command -options arguments
     echo today is `date`   # output: today is Tue 04 Jan 2022 07:36:28 AM CST
     `echo node`            # This will open the node console for me 
     ```
-  
+
+## Regular Expression
+###### [Back to TOC](#table-of-contents)
+* Regular expression (Regex) helps us to match patterns.
+  * Basic regular expression:
+    * `.` matches any single character.
+    * `^` matches the start of the line.
+    * `$` matches the end of the line.
+    * `[abc]` matches any single character in this set.
+    * `[^abc]` matches any single character not in this set.
+    * `[A-Z]` matches a single character in this range of A-Z
+    * `*` repeats the previous expression 0 or more times.
+    * `\` escapes meta-characters.
+    * `()` groups the regular expressions.
+  * Extended regular expression:
+    * in `grep` command, we use `-E` option to enable extended regular expression. 
+    * `?` match 0 or 1 preceding expression.
+      ```s
+      grep "patterns?" README.md # use basic regular expression
+      grep "patterns?" -E README.md # ? means 's' is optional. Match pattern or patterns
+      ```
+    * `a{3}` means aaa. `[A-Z]{5}` means having 5 of any characters from A to Z, such as ABCZA.
+      ```s
+      grep "[aeiou]{2,4}" -E README.md # find 2 ~ 4 vowels next the each other.
+      ```
