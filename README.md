@@ -49,6 +49,7 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
   * single and double quotes
   * command substitution
 * [Regular expression](#regular-expression)
+* [Permissions basics](#permissions-basics)
 
 ## Basic command structure
 ```s
@@ -734,3 +735,26 @@ command -options arguments
       ```s
       grep "[aeiou]{2,4}" -E README.md # find 2 ~ 4 vowels next the each other.
       ```
+
+## Permissions basics
+###### [Back to TOC](#table-of-contents)
+* Unix and unix-like systems are multi-user operating system. They can have multiple uses login to the system at the same time.
+* File owners and group owners
+  * Each file and directory can has a single owner and a group owner. A group owner can have one or multiple users. For example: 
+    * `drwxr-xr-x 2 feifei feifamily 4096 Dec 21 13:56 Desktop` means the Desktop directory has a owner of feifei and a group owner of feifamily.
+* File attributes
+  * `ls -l ~` commands list 10 digits file attributes: `-rw-rw-r--`. These characters tell us the type of the file, the read, write, and execute permissions for the file's owner, the file group user, and everyone else.
+    ![file permission](./pictures/file-attributes.png)
+    * The first letter tell use the file type:
+      * `-`: regular file
+      * `d`: directory
+      * `c`: character special file
+      * `l`: symbolic link
+    * The last 9 characters tells use about the permission. Take `drwxr-xr-- 2 feifei feifamily 4096 Dec 21 13:56 Desktop` as an example: 
+      * The first letter `d` tells us that Desktop is a directory.
+      * The first 2-4 letters `rwx` tells us the permissions of the **owner**.
+      * The first 5-7 letters `r-x` tells us the permissions of the members in the **group owner**.
+      * The last three letters `r--` tells us the permissions of the **other users**.
+      * Among these three letters for the owner, the group owner, or the other users, the first letter tells us the read permission, the second letter tells use the write permission, the third letter tells us the executable permission. `-` means permission is not granted.
+      ![read write and execute permissions](./pictures/read-write-execute-permissions.png)
+      * For directory, `x` means user can `cd` into this directory. For file, `x` means this file can be run as a script.
