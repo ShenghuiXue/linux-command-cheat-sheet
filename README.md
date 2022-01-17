@@ -45,6 +45,11 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
     * `sudo`
     * `chown`
   * [Environment](#environment)
+    * `printenv`
+    * `$`
+    * define variables
+    * startup files
+    * `alias`
 * [Useful commands](#useful-commands)
 * [Nice to have commands](#nice-to-have-commands)
 * [Shortcuts](#shortcuts)
@@ -693,9 +698,19 @@ command -options arguments
   * For non-login sessions (typical session when you launch the terminal via the GUI):
     * `/etc/bash.bashrc`: global config for all users
     * `~/bashrc`: specific settings for each user. This is where we can define our own settings and configuration
-
-
-
+* alias
+  * We can define our own commands using `alias` command.
+    ```s
+    alias bark='echo wooooof'
+    bark # output wooooof
+    ```
+  * We can save our own aliases in the `~/.bashrc` file so that my own aliases can be loaded when I open a new shell.
+    ```s
+    # you can use this command to find the aliases that have been
+    # defined in ~/.bashrc file.
+    cat ~/.bashrc | grep alias 
+    ```
+  * You can also define your aliases in `~/.bash_aliases` file instead of adding them directly in `~/.bashrc` file.
 
 ## Useful commands
 ###### [Back to TOC](#table-of-contents) 
@@ -897,3 +912,7 @@ command -options arguments
       ```s
       grep "[aeiou]{2,4}" -E README.md # find 2 ~ 4 vowels next the each other.
       ```
+
+## Bash scripts
+###### [Back to TOC](#table-of-contents)
+to be continue ...
