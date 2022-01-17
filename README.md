@@ -38,6 +38,12 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
     * `find`
   * [Grep](#grep)
     * `grep`
+  * [Permissions basics](#permissions-basics)
+  * [Alter permissions](#alter-permissions)
+    * `chmod`
+    * `su`
+    * `sudo`
+    * `chown`
 * [Useful commands](#useful-commands)
 * [Nice to have commands](#nice-to-have-commands)
 * [Shortcuts](#shortcuts)
@@ -49,7 +55,7 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
   * single and double quotes
   * command substitution
 * [Regular expression](#regular-expression)
-* [Permissions basics](#permissions-basics)
+
 
 ## Basic command structure
 ```s
@@ -534,6 +540,108 @@ command -options arguments
     ```
     * `grep` command can search for the linux basic regular expression and extended regular expression (with `-E` option). You can find a little bit more details in the [regular expression](#regular-expression) session.
 
+### Permissions basics
+###### [Back to TOC](#table-of-contents)
+* Unix and unix-like systems are multi-user operating system. They can have multiple uses login to the system at the same time.
+* File owners and group owners
+  * Each file and directory has a single owner and a group owner. A group owner can have one or multiple users. For example: 
+    * `drwxr-xr-x 2 feifei feifamily 4096 Dec 21 13:56 Desktop` means the Desktop directory has a owner of feifei and a group owner of feifamily.
+* File attributes
+  * `ls -l ~` commands list 10-character file attributes: `-rw-rw-r--`. These characters tell us the type of the file, the read, write, and execute permissions for the file's owner, the file group user, and everyone else.
+    ![file permission](./pictures/file-attributes.png)
+    * The first letter tell use the file type:
+      * `-`: regular file
+      * `d`: directory
+      * `c`: character special file
+      * `l`: symbolic link
+    * The last 9 characters tells use about the permission. Take `drwxr-xr-- 2 feifei feifamily 4096 Dec 21 13:56 Desktop` as an example: 
+      * The first letter `d` tells us that Desktop is a directory.
+      * The first 2-4 letters `rwx` tells us the permissions of the **owner**.
+      * The first 5-7 letters `r-x` tells us the permissions of the members in the **group owner**.
+      * The last three letters `r--` tells us the permissions of the **other users**.
+      * Among these three letters for the owner, the group owner, or the other users, the first letter tells us the read permission, the second letter tells use the write permission, the third letter tells us the executable permission. `-` means permission is not granted.
+      ![read write and execute permissions](./pictures/read-write-execute-permissions.png)
+      * For directory, `x` means user can `cd` into this directory. For file, `x` means this file can be run as a script.
+
+### Alter permissions
+###### [Back to TOC](#table-of-contents)
+* chmod (change mode)
+  * Please read [permissions basics](#permissions-basics) session if you are not familiar with owner, owner group, read permission, write permission and execute permission.
+  * We can use `chmod` command to change the permissions of a file or a directory.
+    ```s
+    chmod mode <file or directory>
+    ```
+  * To use chmod to alter permissions, we need to tell linux:
+    * **who** we are changing permissions for
+      * `u` : user (the owner of the file)
+      * `g` : group (members of the group the file belongs to)
+      * `o` : others
+      * `a` : all above
+    * **what** change are we make? Adding? Removing?
+      * `-` : removes the permission
+      * `+` : grants the permission
+      * `=` : set a permission and removes other permissions
+    * **Which** permissions are we setting?
+      * `r` : the read permission
+      * `w` : the write permission
+      * `x` : the execute permission
+    * Here are some examples:
+      ```s
+      cd test_dir # go to test_dir directory, so that you can play with test.txt file
+      ls -l # use this command to display current permissions of files in this directory
+
+      chmod o+w test.txt # grant write permission to other users for test.txt file
+      ls -l # check what happened
+
+      chmod u+x test.txt # grant execute permission to the owner for test.txt file
+      ls -l
+
+      chmod u-x test.txt # remove execute permission to the owner for test.txt file
+      ls -l
+
+      chmod u=w test.txt # set write permission to the owner, but remove read and execute permission to the owner
+      ls -l
+
+      chmod u-rw test.txt # remove the read and write permissions to the owner for test.txt file
+      ls -l
+      cat test.txt # cat: test.txt: Permission denied
+
+      chmod a+rwx text.txt # grant read, write and execute permissions to all users
+      ls -l
+      ```
+  * Using Octals with chmod
+    * `chmod` also supports another way of presenting permission patterns using three octal numbers (base 8). 
+    * These three octal numbers represent the permissions for the owner, group owner, and other user.
+    * Each digit in an **octal number** represents 3 **binary digits**, and these three binary digits represent the whether the permissions of read, write, and execute are granted or not.
+      ![chmod octals](./pictures/chmod-octals.png)
+    * In the picture above, `chmod 755 file.txt`, chmod command is followed by three octal numbers, `7`, `5`, `5`. These three numbers represent the permissions of this file to the owner (`7`: 111 -> rwx), the group owner (`5`: 101 -> r-x), and other users (`5`: 101 -> r-x).
+    * You don't need to remember the meaning for all the octal numbers. Here are some most common ones:
+      * `7`: rwx, read, write, and execute permissions are granted.
+      * `4`: r--, read only.
+      * `6`: rw-, read, and write permissions are granted.
+      * `1`: --x, execute only.
+      * `0`: ---, no permissions are granted.
+* su
+  * `su` command is used to substitute the user and group ID.
+  * `-, -l, --login` option start the shell as a login shell with an environment similar to a real login. Please check for more details of this option using `man su` command.
+    ```s
+    su <user_2> # log in as user_2 in this terminal
+    su - <user_2> # log in as user_2 and also update the user_2's environment
+    ```
+* sudo
+  * Ubuntu locks the root user by default and we can run the commands under the privilege of root user by `sudo` command.
+    ```s
+    sudo apt update
+    ```
+* chown
+  * We can change the ownership of files and directories by `chown` command.
+  * Regular user cannot change owners. We can run `chown` command with `sudo` to change the ownership.
+    ```s
+    chown USER[:GROUP] FILE(s)
+    sudo chown user2 test.txt # change the ownership of this file to user2
+    sudo chown :group2 test.txt # change the group ownership of this file to group 2
+    ```
+
 
 ## Useful commands
 ###### [Back to TOC](#table-of-contents) 
@@ -735,26 +843,3 @@ command -options arguments
       ```s
       grep "[aeiou]{2,4}" -E README.md # find 2 ~ 4 vowels next the each other.
       ```
-
-## Permissions basics
-###### [Back to TOC](#table-of-contents)
-* Unix and unix-like systems are multi-user operating system. They can have multiple uses login to the system at the same time.
-* File owners and group owners
-  * Each file and directory can has a single owner and a group owner. A group owner can have one or multiple users. For example: 
-    * `drwxr-xr-x 2 feifei feifamily 4096 Dec 21 13:56 Desktop` means the Desktop directory has a owner of feifei and a group owner of feifamily.
-* File attributes
-  * `ls -l ~` commands list 10 digits file attributes: `-rw-rw-r--`. These characters tell us the type of the file, the read, write, and execute permissions for the file's owner, the file group user, and everyone else.
-    ![file permission](./pictures/file-attributes.png)
-    * The first letter tell use the file type:
-      * `-`: regular file
-      * `d`: directory
-      * `c`: character special file
-      * `l`: symbolic link
-    * The last 9 characters tells use about the permission. Take `drwxr-xr-- 2 feifei feifamily 4096 Dec 21 13:56 Desktop` as an example: 
-      * The first letter `d` tells us that Desktop is a directory.
-      * The first 2-4 letters `rwx` tells us the permissions of the **owner**.
-      * The first 5-7 letters `r-x` tells us the permissions of the members in the **group owner**.
-      * The last three letters `r--` tells us the permissions of the **other users**.
-      * Among these three letters for the owner, the group owner, or the other users, the first letter tells us the read permission, the second letter tells use the write permission, the third letter tells us the executable permission. `-` means permission is not granted.
-      ![read write and execute permissions](./pictures/read-write-execute-permissions.png)
-      * For directory, `x` means user can `cd` into this directory. For file, `x` means this file can be run as a script.
