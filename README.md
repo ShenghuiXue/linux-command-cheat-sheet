@@ -697,7 +697,7 @@ command -options arguments
     * `~/.profile`: read if previous two aren't found
   * For non-login sessions (typical session when you launch the terminal via the GUI):
     * `/etc/bash.bashrc`: global config for all users
-    * `~/bashrc`: specific settings for each user. This is where we can define our own settings and configuration
+    * `~/.bashrc`: specific settings for each user. This is where we can define our own settings and configuration
 * alias
   * We can define our own commands using `alias` command.
     ```s
