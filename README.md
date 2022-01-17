@@ -44,6 +44,7 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
     * `su`
     * `sudo`
     * `chown`
+  * [Environment](#environment)
 * [Useful commands](#useful-commands)
 * [Nice to have commands](#nice-to-have-commands)
 * [Shortcuts](#shortcuts)
@@ -499,6 +500,7 @@ command -options arguments
       find -name "*chick*" -or -name "*kitty*"
       find -type -f -not -name "*.html"
       ```
+
 ### Grep
 ###### [Back to TOC](#table-of-contents)
 * grep
@@ -641,6 +643,58 @@ command -options arguments
     sudo chown user2 test.txt # change the ownership of this file to user2
     sudo chown :group2 test.txt # change the group ownership of this file to group 2
     ```
+
+### Environment
+###### [Back to TOC](#table-of-contents)
+* printenv
+  * We can use the `printenv` command to view the environment variables and their current values.
+    ```s
+    printenv
+    printenv | less
+    ```
+* $ (parameter expansion)
+  * If we write out the name of an environment variable prefixed with a dollar sign (`$`), the shell will replace it with the actual value.
+    ```s
+    echo $USER
+    echo $HOME
+    echo $PWD # the current working directory
+    echo $OLDPWD # the previous working directory
+    ```
+* Define variables
+  * Shell variable:
+    * only exists in the current shell session of the shell.
+  * Environment variable:
+    * exists for the current user across all shell sessions.
+  * Define shell variable:
+    * We can use the syntax `variable=value` to define a **shell variable**.
+    * The built-in variables are upper-cased, so it is a common convention to use lowercase custom variables to prevent confusions. 
+    * The variables defined in this way is temporary, and the defined variable will be cleared when you logout this user.
+      ```s
+      laugh=hahaha
+      echo $laugh
+      ```
+    * The **shell variable** defined in this way will not be displayed by `printenv` command, because `printenv` only print **environment variable**.
+  * Define environment variable:
+    * We use the syntax `export variable=value` to define a **environment variable**.
+      ```s
+      export laugh=hehehehe
+      echo $laugh
+      printenv | grep laugh
+      ```
+    * **This variable will be cleared if I close this terminal and open a new one.**
+* Startup Files
+  * When we log in, the shell reads information from startup files. First, the shell reads from global config files that effect the environment for all users, then shell reads startup files for specific users.
+  * The specific files the shell reads from depends on the type of session: login vs. non-login shell sessions.
+  * For login sessions:
+    * `/etc/profile`: the global config for all users
+    * `~/.bash_profile`: user's personal config file
+    * `~/.bash_login`: read if bash_profile isn't found
+    * `~/.profile`: read if previous two aren't found
+  * For non-login sessions (typical session when you launch the terminal via the GUI):
+    * `/etc/bash.bashrc`: global config for all users
+    * `~/bashrc`: specific settings for each user. This is where we can define our own settings and configuration
+
+
 
 
 ## Useful commands
