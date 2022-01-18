@@ -61,6 +61,7 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
   * single and double quotes
   * command substitution
 * [Regular expression](#regular-expression)
+* [Bash scripts](#bash-scripts)
 
 
 ## Basic command structure
@@ -963,3 +964,31 @@ command -options arguments
       #!/usr/bin/perl
       print "Hi from perl"
       ```
+
+## Schedule services
+###### [Back to TOC](#table-of-contents)
+* The cron service allows us to schedule commands to run at regular intervals like every 1 hour, every day at the midnight, etc.
+* To setup a cron job, we need to edit the crontab configuration file. Rather than edit the file directly, it's best to use the `crontab -e` command. 
+  ```s
+  crontab -e
+  ```
+* Cron Syntax
+  ![cron syntax](./pictures/cron-syntax.png)
+* Cron Characters
+  ![cron characters](./pictures/cron-characters.png)
+  * Examples:
+    * `30 * * * * command1` means run the command1 every time when the clock shows xx: 30.
+    * `0 0 * * * command2` means run the command2 everyday at midnight (00:00).
+    * `30 6 * * * command3` means run the command3 at 6:30 am everyday.
+    * `30 6 * * 1 command4` means run the command4 at 6:30 am every Monday.
+    * `30 6 * 4 1 command5` means run the command5 at 6:30 am every Monday in April.
+    * `0 0 1 * * command6` means run the command6 at 00:00 on the first day of each month.
+    * `0 0 . . 1-5 command7` means run the command7 at 00:00 every weekday (monday - friday).
+    * `*/5 * * * * command8` means run the command8 every 5 minutes
+
+  * You can learn more about the cron job syntax in [crontab guru](https://crontab.guru/) website.
+* Handle errors in the cron jobs:
+  * you can use `2>>` to redirect error logs in cron job. For example:
+    ```s
+    * * * * * errorcommand 2>> ~/error.log
+    ```
