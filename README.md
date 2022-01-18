@@ -943,7 +943,7 @@ command -options arguments
     chmod a+x hi
     ```
 * Shebang
-  * The first line of [hi](./scripts/hi) is called "Shebang" (#!/bin/bash), which tell linux that we should run this script using `/bin/bash.`
+  * The first line of [hi file in scripts directory](./scripts/hi) defines which language should be used to run this script. `#!/bin/bash` tells linux terminal that we should run this script using `/bin/bash.`
   * This sequence of characters (#!) is called shebang and is used to tell the operating system which interpreter to use to parse the rest of the file.
   * Read more about shebang with this [link](#https://linuxize.com/post/bash-shebang/).
     ```bash
@@ -954,12 +954,12 @@ command -options arguments
     ```
   * We can add shebang at the first line to define what language should terminal to run.
     * To allow terminal run the script written in python3, we can add `#!/usr/bin/python3` into the first line of the script.
-    ```python
-    #!/usr/bin/python3
-    print("Hi from python")
-    ```
-  * We use use `#!/usr/bin/perl` to tell the terminal to run the script below with perl.
-    ```perl
-    #!/usr/bin/perl
-    print "Hi from perl"
-    ```
+      ```python
+      #!/usr/bin/python3
+      print("Hi from python")
+      ```
+    * We use use `#!/usr/bin/perl` to tell the terminal to run the script below with perl.
+      ```perl
+      #!/usr/bin/perl
+      print "Hi from perl"
+      ```
