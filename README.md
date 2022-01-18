@@ -915,4 +915,51 @@ command -options arguments
 
 ## Bash scripts
 ###### [Back to TOC](#table-of-contents)
-to be continue ...
+* A simple bash script, called hi, can be found in [scripts folder](#./scripts/hi).
+  ```bash
+  #!/bin/bash
+
+  # This is a comment line
+  echo "Hi, $USER"
+  echo "Today is $(date)"
+  echo "last run hi at $(date)" >> hi.log
+  ```
+  * The first line should be `#!/bin/bash`.
+  * `#` stands for the comment line.
+  * Then, we can write shell commands in this file.
+  * This file can be run by `bash ./scripts/hi` or `sh ./scripts/hi`
+  * We can not run `hi` directly without additional setup.
+* `PATH` variable defines a set of directory (separated by :) where the bash scripts are stored.
+  ```s
+  echo $PATH
+  # output: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  ```
+  * If our hi script is stored in one of these directories, then we can run our hi script by simply type `hi` in the terminal.
+  * We can add our own directory into the PATH variable so that the bash script stored in that directory can be run by simply type the name of the bash script.
+  * By conventional, we can store our personal bash scripts in `~/bin` directory. If `~/bin` is not available in your machine, then you can create `~/bin` by yourself `mkdir ~/bin`. Then, you can add `~/bin` to the PATH variable so that `~/bin` directory can be used to store and run your personal bash scripts. In Ubuntu, you can add `~/bin` directory to PATH by running `source ~/.profile` command. Alternatively, you can open `~/.bashrc` file, and then type and save `PATH="$HOME/bin:$PATH"` at the last line.
+  * Lastly, we should make `hi` file executable in `~/bin`.
+    ```s
+    cd ~/bin
+    chmod a+x hi
+    ```
+* Shebang
+  * The first line of [hi](./scripts/hi) is called "Shebang" (#!/bin/bash), which tell linux that we should run this script using `/bin/bash.`
+  * This sequence of characters (#!) is called shebang and is used to tell the operating system which interpreter to use to parse the rest of the file.
+  * Read more about shebang with this [link](#https://linuxize.com/post/bash-shebang/).
+    ```bash
+    #!/bin/bash
+    echo "Hi, $USER"
+    echo "Today is $(date)"
+    echo "last run hi at $(date)" >> hi.log
+    ```
+  * We can add shebang at the first line to define what language should terminal to run.
+    * To allow terminal run the script written in python3, we can add `#!/usr/bin/python3` into the first line of the script.
+    ```python
+    #!/usr/bin/python3
+    print("Hi from python")
+    ```
+  * We use use `#!/usr/bin/perl` to tell the terminal to run the script below with perl.
+    ```perl
+    #!/usr/bin/perl
+    print "Hi from perl"
+    ```

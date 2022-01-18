@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# This is a comment line
+
+echo "Hi, $USER"
+echo "Today is $(date)"
+echo "last run hi at $(date)" >> hi.log
