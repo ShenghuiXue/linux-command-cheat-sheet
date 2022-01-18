@@ -51,7 +51,15 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
     * startup files
     * `alias`
 * [Useful commands](#useful-commands)
+  * `clear`
+  * `file`
+  * `history`
+  * `type`
+  * `xdg-open, open`
+  * `which` 
 * [Nice to have commands](#nice-to-have-commands)
+  * `date`
+  * `ncal` 
 * [Shortcuts](#shortcuts)
 * [Expansion](#expansion)
   * pathname expansion
@@ -62,6 +70,7 @@ This cheat sheet created based on the Udemy online course by Colt Steele: [The L
   * command substitution
 * [Regular expression](#regular-expression)
 * [Bash scripts](#bash-scripts)
+* [Schedule services](#schedule-services)
 
 
 ## Basic command structure
@@ -755,7 +764,7 @@ command -options arguments
     open <folder_dir>
     ```
 * which
-  * Tells where is the command is located.
+  * Tells where a command is located.
   * Related commands: ***type***, ***man***
     ```s
     which command_name
@@ -930,12 +939,12 @@ command -options arguments
   * Then, we can write shell commands in this file.
   * This file can be run by `bash ./scripts/hi` or `sh ./scripts/hi`
   * We can not run `hi` directly without additional setup.
-* `PATH` variable defines a set of directory (separated by :) where the bash scripts are stored.
+* `PATH` variable defines a set of directories (separated by :) where the bash scripts are stored.
   ```s
   echo $PATH
   # output: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
   ```
-  * If our hi script is stored in one of these directories, then we can run our hi script by simply type `hi` in the terminal.
+  * If our hi script is stored in one of these directories and our script is executable, then we can run our hi script by simply type `hi` in the terminal.
   * We can add our own directory into the PATH variable so that the bash script stored in that directory can be run by simply type the name of the bash script.
   * By conventional, we can store our personal bash scripts in `~/bin` directory. If `~/bin` is not available in your machine, then you can create `~/bin` by yourself `mkdir ~/bin`. Then, you can add `~/bin` to the PATH variable so that `~/bin` directory can be used to store and run your personal bash scripts. In Ubuntu, you can add `~/bin` directory to PATH by running `source ~/.profile` command. Alternatively, you can open `~/.bashrc` file, and then type and save `PATH="$HOME/bin:$PATH"` at the last line.
   * Lastly, we should make `hi` file executable in `~/bin`.
