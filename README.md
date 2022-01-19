@@ -721,6 +721,8 @@ command -options arguments
     cat ~/.bashrc | grep alias 
     ```
   * You can also define your aliases in `~/.bash_aliases` file instead of adding them directly in `~/.bashrc` file.
+  * Last use `source ~/.bash_aliases` or `source ~/.bashrc` (based on which file you changed) to make alias setup effective.
+  * More helpful online resources about alias can be found in this website: [link](https://wpbeaches.com/make-an-alias-in-bash-or-zsh-shell-in-macos-with-terminal/)
 
 ## Useful commands
 ###### [Back to TOC](#table-of-contents) 
