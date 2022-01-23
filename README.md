@@ -722,6 +722,12 @@ command -options arguments
     ```s
     file <file_name or folder_name>
     ```
+* gtk-launch
+  * `gtk-launch` launches an application using the given name.
+  * `gtk-launch` takes at least one argument, the name of the application to launch. The name should match application desktop file name, as residing in /usr/share/application, with or without the '.desktop' suffix.
+    ```s
+    gtk-launch atom
+    ```
 * history
   * Display all the command lines you entered previously
     ```s
