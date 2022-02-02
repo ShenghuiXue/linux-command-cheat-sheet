@@ -709,6 +709,10 @@ command -options arguments
     * `/etc/bash.bashrc`: global config for all users
     * `~/.bashrc`: specific settings for each user. This is where we can define our own settings and configuration
 * alias
+  * We can list all the aliases in the current system by type `alias`
+    ```s
+    alias
+    ```
   * We can define our own commands using `alias` command.
     ```s
     alias bark='echo wooooof'
